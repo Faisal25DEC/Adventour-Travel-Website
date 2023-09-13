@@ -1,0 +1,49 @@
+* {
+  font-family: "Roboto", sans-serif;
+  background: #131313;
+  color: white;
+}
+
+.search-destinations {
+  background: #1b1b1b;
+  padding: 5%;
+  border-radius: 25px;
+}
+
+.sub {
+  color: #6c9999;
+}
+
+.heading {
+  font-size: 3rem;
+  width: 80%;
+}
+
+.btn {
+  background-color: #0cc0df;
+}
+
+.vl {
+  border: 1px solid grey;
+  height: 40px;
+  width: 0px;
+}
+
+.image-background {
+  background-color: #1b1b1b;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.banner-image {
+  background-color: transparent;
+  width: 370px;
+  filter: contrast(70%);
+}
+
+select,
+input[type="date"] {
+  outline: none;
+  border: none !important;
+  padding: 0 !important;
+}

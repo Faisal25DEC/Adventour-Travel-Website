@@ -1,0 +1,14 @@
+.btn {
+  background-color: #0cc0df;
+  color: #131313;
+}
+
+.search-box {
+  background: #1b1b1b;
+  outline: none;
+  border: none;
+}
+
+.search-box::placeholder {
+    color: rgb(122, 122, 122);
+}
