@@ -2,7 +2,7 @@ import React from "react";
 import "./HomeStyling.css";
 import homeBannerImage from '../../Assets/adventour-home-girl-top_png-transformed.png'
 
-const HomeBanner = () => {
+const HomeBanner = () => {  
   return (
     <div className="home-div">
       <div className="container mt-5">
@@ -25,13 +25,18 @@ const HomeBanner = () => {
                   Location
                 </label>
                 <select
-                  style={{ background: "#1b1b1b", color: "white", width:"50%" }}
+                  style={{ background: "#1b1b1b", color: "white" }}
                   className="cities form-select mt-1" 
                 >
-                  <option value="default">Bali, INA</option>
-                  {/* <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option> */}
+                  <option value="default">-- Choose City --</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="Andaman & Nicobar">Andaman & Nicobar</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Maharashtra">Maharashtra</option>
                 </select>
               </div>
               <div className="col-1 vl"></div>

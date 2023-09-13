@@ -5,6 +5,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+// Default theme
+import '@splidejs/splide/css';
+
+
+// or other themes
+import '@splidejs/splide/css/skyblue';
+import '@splidejs/splide/css/sea-green';
+
+
+// or only core styles
+import '@splidejs/splide/css/core';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
