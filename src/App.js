@@ -7,10 +7,8 @@ import {Navbar} from './Components/Shared/Navbar'
 import { Home } from "./Pages/Home";
 function App() {
   return <div>
-  
-  <AllRoutes/>
     <Navbar/>
-    <Home/>
+  <AllRoutes/>
     <Footer/>
   </div>;
 }
