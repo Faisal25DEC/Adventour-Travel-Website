@@ -12,3 +12,19 @@
 .search-box::placeholder {
     color: rgb(122, 122, 122);
 }
+
+.card {
+  background-color: #131313;
+  border-radius: 20px;
+}
+
+.card:hover, .card-body:hover {
+  background-color: #1b1b1b;
+  transition: 0.5s;
+}
+
+.card-img {
+  border-radius: 10px !important;
+  width: 90%;
+  margin: auto;
+}

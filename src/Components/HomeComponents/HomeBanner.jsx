@@ -1,13 +1,13 @@
 import React from "react";
-import "./HomeBanner.css";
-import homeBannerImage from '../../Assets/homeBannerImage.png'
+import "./HomeStyling.css";
+import homeBannerImage from '../../Assets/adventour-home-girl-top_png-transformed.png'
 
 const HomeBanner = () => {
   return (
-    <div>
+    <div className="home-div">
       <div className="container mt-5">
         <div className="row gap-5">
-          <div className="col-7">
+          <div className="col-lg-7 col-md-7 col-sm-12">
             <div className="text-section pe-2">
               <h6 style={{color: "#0CC0DF", letterSpacing: "2px"}}>All you need is Adventour.</h6>
               <h1 className="heading">
@@ -26,12 +26,12 @@ const HomeBanner = () => {
                 </label>
                 <select
                   style={{ background: "#1b1b1b", color: "white", width:"50%" }}
-                  className="form-select mt-1" 
+                  className="cities form-select mt-1" 
                 >
                   <option value="default">Bali, INA</option>
-                  <option value="1">One</option>
+                  {/* <option value="1">One</option>
                   <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="3">Three</option> */}
                 </select>
               </div>
               <div className="col-1 vl"></div>
@@ -53,9 +53,9 @@ const HomeBanner = () => {
               <button className="btn py-0"><i class="fa-solid fa-magnifying-glass" style={{color: "#000919", background: "transparent"}}></i></button>
             </div>
           </div>
-          <div className="col-4 float-endimage-background">
+          <div className="col-lg-4 col-md-4 col-sm-12 float-endimage-background">
             <div className="image-background">
-                <img src={homeBannerImage} className="banner-image" alt="" />
+                <img src={homeBannerImage} className="banner-image img-fluid" alt="" />
             </div>
           </div>
         </div>

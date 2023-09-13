@@ -1,0 +1,175 @@
+@keyframes move {
+  100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+.background {
+
+  background: #131313;
+}
+
+.background span {
+  width: 6vmin;
+  height: 6vmin;
+  border-radius: 6vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation: move;
+  animation-duration: 46;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+.background span:nth-child(0) {
+  color: #0cc0df;
+  top: 95%;
+  left: 24%;
+  animation-duration: 37s;
+  animation-delay: -39s;
+  transform-origin: -8vw 13vh;
+  box-shadow: -12vmin 0 2.1608180126425003vmin currentColor;
+}
+.background span:nth-child(1) {
+  color: #06c999;
+  top: 70%;
+  left: 3%;
+  animation-duration: 29s;
+  animation-delay: -12s;
+  transform-origin: -14vw -9vh;
+  box-shadow: -12vmin 0 2.0534163670382526vmin currentColor;
+}
+.background span:nth-child(2) {
+  color: #0cc0df;
+  top: 91%;
+  left: 95%;
+  animation-duration: 16s;
+  animation-delay: -40s;
+  transform-origin: -20vw 3vh;
+  box-shadow: 12vmin 0 1.5936605406915771vmin currentColor;
+}
+.background span:nth-child(3) {
+  color: #0cc0df;
+  top: 6%;
+  left: 51%;
+  animation-duration: 27s;
+  animation-delay: -18s;
+  transform-origin: -20vw -9vh;
+  box-shadow: 12vmin 0 1.7853847816177988vmin currentColor;
+}
+.background span:nth-child(4) {
+  color: #06c999;
+  top: 85%;
+  left: 63%;
+  animation-duration: 7s;
+  animation-delay: -31s;
+  transform-origin: -18vw -4vh;
+  box-shadow: -12vmin 0 2.084228864482208vmin currentColor;
+}
+
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #131313;
+  color: white;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.search-destinations {
+  background: #1b1b1b;
+  padding: 5%;
+  border-radius: 25px;
+}
+
+.home-div {
+  margin-top: 10%;
+}
+
+.sub {
+  color: #6c9999;
+}
+
+.heading {
+  font-size: 4.3rem;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #0cc0df;
+}
+
+.btn:hover {
+  background-color: #1b1b1b;
+}
+
+.vl {
+  border: 1px solid grey;
+  height: 40px;
+  width: 0px;
+}
+
+.image-background {
+  background-color: #1b1b1b;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.banner-image {
+  background-color: transparent;
+}
+
+select,
+input[type="date"] {
+  outline: none;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.holiday-easily {
+  background-color: #1b1b1b;
+}
+
+.feature-icons {
+  margin-top: 5%;
+}
+
+.fa-xl {
+  color: #0cc0df;
+  background-color: #474747;
+  padding: 10%;
+}
+
+.aligned-low {
+  margin-top: 40%;
+}
+
+.stats {
+  font-weight: 600;
+  color: #0cc0df;
+}
+
+.testi-card:hover {
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 720px) {
+  .home-div {
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .aligned-low {
+    margin-top: 0;
+  }
+
+  .fa-xl {
+    padding: 5%;
+  }
+}

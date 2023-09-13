@@ -6,7 +6,7 @@ import '../Shared/Shared.css'
 export const Navbar = () => {
   return (
     <div>
-      <nav style={{background: "#131313"}} className="navbar sticky-top navbar-expand-lg navbar-dark ">
+      <nav style={{background: "#131313"}} className="navbar fixed-top navbar-expand-lg navbar-dark ">
         <div className="container">
           <a className="navbar-brand" href="/">
             <img src={logo} alt="" className="img-fluid me-2" width={50}/>
