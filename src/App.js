@@ -1,12 +1,7 @@
 import "./App.css";
-import Destinations from "./Pages/Destinations/Destinations";
 
 function App() {
-  return (
-    <div>
-      <Destinations />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
