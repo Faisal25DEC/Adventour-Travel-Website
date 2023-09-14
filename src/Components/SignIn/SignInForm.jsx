@@ -1,17 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
-import { UserContext } from "../../contexts/user.context";
 import {
   auth,
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebse.utils";
+} from "../../Utils/firebase/firebase";
 import { updateProfile } from "firebase/auth";
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../FormInput/FormInput";
 
-import "./sign-in-form.styles.scss";
-import Button from "../button/button.component";
+import "./SignInForm.scss";
+// import Button from "../button/button.component";
 
 const defaultFormFields = {
   email: "",
@@ -21,8 +20,6 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const signInWithGoole = async () => {
     try {
@@ -56,7 +53,6 @@ const SignInForm = () => {
     try {
       const user = await signInAuthUserWithEmailAndPassword(email, password);
       console.log(user);
-      setCurrentUser(user);
       resetFormFields();
     } catch (err) {
       switch (err.code) {
@@ -97,12 +93,12 @@ const SignInForm = () => {
           value={password}
         />
         <div className="buttons-container">
-          <Button type="submit" buttonType="default">
+          {/* <Button type="submit" buttonType="default"> */}
             Sign in
-          </Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoole}>
+          {/* </Button> */}
+          {/* <Button type="button" buttonType="google" onClick={signInWithGoole}> */}
             Sign In With Google
-          </Button>
+          {/* </Button> */}
           <button
             onClick={async () => {
               updateProfile(auth.currentUser, {

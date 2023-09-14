@@ -259,7 +259,7 @@ export const ProductSection = () => {
                     deserunt mollit anim id est laborum.
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item eventKey="1">
+                <Accordion.Item eventKey="2">
                   <Accordion.Header>Best Time To Visit</Accordion.Header>
                   <Accordion.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

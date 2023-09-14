@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import { store } from './Redux/store';
 import { BrowserRouter } from 'react-router-dom';
 // Default theme
 import '@splidejs/splide/css';

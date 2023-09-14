@@ -3,11 +3,11 @@ import {
   auth,
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-} from "../../utils/firebase/firebse.utils";
-import FormInput from "../form-input/form-input.component";
+} from "../../Utils/firebase/firebase";
+import FormInput from "../FormInput/FormInput";
 import { Form } from "react-router-dom";
-import "./sign-up-form.styles.scss";
-import Button from "../button/button.component";
+import "./SignUpForm.scss";
+// import Button from "../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -91,7 +91,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button buttonType="default">Sign in</Button>
+        {/* <Button buttonType="default">Sign in</Button> */}
       </form>
     </div>
   );
