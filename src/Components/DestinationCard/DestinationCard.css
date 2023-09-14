@@ -1,0 +1,79 @@
+:root {
+  --button-color: #14b6e8;
+}
+
+.destination-card-wrapper {
+  background-color: hsl(240, 92%, 5%);
+  color: whitesmoke;
+  margin-bottom: 2rem;
+  width: 25rem;
+  padding-bottom: 1rem;
+}
+.card-body {
+  width: 95%;
+  margin: auto;
+}
+.card-title {
+  margin-top: 1rem;
+}
+.duration-rating-wrapper {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.duration-rating-wrapper img {
+  width: 18px;
+  height: 18px;
+}
+.duration-rating-wrapper p {
+  margin: 0;
+}
+.duration-rating-wrapper > div {
+  display: flex;
+  align-items: center;
+
+  gap: 0.4rem;
+}
+.destination-desc {
+  width: 95%;
+  margin: auto;
+  text-align: justify;
+  margin-top: 1rem;
+  color: rgb(157, 157, 157);
+}
+.price-and-view-wrapper {
+  width: 95%;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price {
+  font-size: 1.4rem;
+}
+.price > .dollar {
+  font-size: 1.45rem;
+  font-weight: bolder;
+}
+.price > .per-day {
+  font-size: 0.8rem;
+  color: grey;
+}
+.view-button {
+  background-color: var(--button-color) !important;
+  width: 7rem;
+}
+.MuiButtonBase-root {
+  color: white !important;
+}
+.MuiPaginationItem-root {
+  color: white !important;
+}
+.MuiPagination-root {
+  display: flex;
+  justify-content: center;
+}

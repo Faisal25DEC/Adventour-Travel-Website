@@ -10,8 +10,8 @@ const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/destination/test" element={<DestinationDetails/>}/>
-        <Route path="/checkout" element={<Checkout/>}></Route>
+        <Route path="/destination/test" element={<DestinationDetails />} />
+        <Route path="/checkout" element={<Checkout />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/successfull" element={<Successfull />}></Route>
       </Routes>
