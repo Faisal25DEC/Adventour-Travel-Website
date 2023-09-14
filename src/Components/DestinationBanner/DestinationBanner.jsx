@@ -28,7 +28,7 @@ const DestinationBanner = () => {
       <div className="destination-banner">
         {/* </div> */}
         <div className="row">
-          <div className="col-8">
+          <div className="col-6">
             <div className="banner-search">
               <div className="destination-input">
                 <label htmlFor="">Search Places</label>
@@ -38,8 +38,13 @@ const DestinationBanner = () => {
                 <label htmlFor="">Search State</label>
                 <input placeholder="state" type="text" />
               </div>
+              <div className="country-input">
+                <label htmlFor="">Search Country</label>
+                <input placeholder="country" type="text" />
+              </div>
             </div>
           </div>
+          <div className="col-2"></div>
           <div className="col-4">
             <Swiper
               style={{
@@ -62,34 +67,64 @@ const DestinationBanner = () => {
                   Laboriosam, molestias.
                 </p>
                 <br />
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-1.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-2.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-3.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-4.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-5.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-6.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-7.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-8.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-9.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-10.jpg"
+                />
               </SwiperSlide>
             </Swiper>
             <Swiper
@@ -103,34 +138,64 @@ const DestinationBanner = () => {
               className="mySwiper"
             >
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-1.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-2.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-3.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-4.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-5.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-6.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-7.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-8.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-9.jpg"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img className="img-fluid" src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                <img
+                  className="img-fluid"
+                  src="https://swiperjs.com/demos/images/nature-10.jpg"
+                />
               </SwiperSlide>
             </Swiper>
           </div>

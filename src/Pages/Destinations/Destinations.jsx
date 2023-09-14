@@ -14,14 +14,15 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/bundle";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { getPlaceImages } from "../../Utils/unplash/unplash";
 const Destinations = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { products } = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getProducts(1));
-  //   }, []);
+  useEffect(() => {
+    getPlaceImages("golden temple")();
+  }, []);
 
   return (
     <div className="destinations-wrapper">

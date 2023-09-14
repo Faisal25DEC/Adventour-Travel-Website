@@ -1,5 +1,34 @@
+:root {
+  --color-primary: #131313;
+}
+
 .destination-banner {
-    background: url('../../Assets/banner-background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: url("../../Assets/banner-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-search {
+  display: flex;
+  background-color: whitesmoke;
+  margin-top: 50%;
+  margin-left: 10%;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: fit-content;
+}
+.banner-search > div {
+  display: flex;
+  flex-direction: column;
+}
+.banner-search > div > label {
+  color: rgb(96, 96, 96);
+}
+.banner-search > div > input {
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
+}
+.destination-card-wrapper {
+  background-color: var(--color-primary);
 }
