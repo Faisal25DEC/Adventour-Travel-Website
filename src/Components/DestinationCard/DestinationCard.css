@@ -27,9 +27,11 @@
 .duration-rating-wrapper img {
   width: 18px;
   height: 18px;
+  color: white;
 }
 .duration-rating-wrapper p {
   margin: 0;
+  color: white;
 }
 .duration-rating-wrapper > div {
   display: flex;

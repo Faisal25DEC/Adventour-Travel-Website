@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Navigation,
   Pagination,
@@ -13,8 +13,17 @@ import "swiper/css/bundle";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { DestinationCards } from "../Shared/DestinationCards";
+import { useDispatch, useSelector } from "react-redux";
+import { getRandomProducts } from "../../Redux/productReducer/productActions";
 
 export const TopDestinations = () => {
+  const { randomProducts } = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRandomProducts());
+  }, []);
+
   return (
     <div className="container mt-5">
       <div className="comp-heading">
@@ -30,7 +39,7 @@ export const TopDestinations = () => {
         </div>
       </div>
       <div className="cards-carousel mt-5">
-      <Swiper
+        <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -56,13 +65,14 @@ export const TopDestinations = () => {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          <SwiperSlide><DestinationCards/></SwiperSlide>
-          </Swiper>
+          {randomProducts.map((randomProduct) => {
+            return (
+              <SwiperSlide>
+                <DestinationCards onProduct={false} product={randomProduct} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );

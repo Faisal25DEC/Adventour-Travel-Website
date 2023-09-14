@@ -3,14 +3,16 @@ import React from "react";
 import Payment from "./Pages/Payment";
 import Checkout from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
-import Authentication from './Pages/AuthPage/Authentication'
+import Authentication from "./Pages/AuthPage/Authentication";
 import { DestinationDetails } from "./Pages/DestinationDetails";
+import Destinations from "./Pages/Destinations/Destinations";
 
 const AllRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/auth" element={<Authentication/>}></Route>
+        <Route path="/destinations" element={<Destinations />} />
+        <Route path="/auth" element={<Authentication />}></Route>
         <Route path="/" element={<Home />}></Route>
         <Route path="/destination/test" element={<DestinationDetails />} />
         <Route path="/checkout" element={<Checkout />}></Route>

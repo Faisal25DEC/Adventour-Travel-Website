@@ -1,15 +1,18 @@
 import React from "react";
-import logo from '../../Assets/icons/adventour.png'
-import '../Shared/Shared.css'
-
+import logo from "../../Assets/icons/adventour.png";
+import "../Shared/Shared.css";
+import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
 
 export const Navbar = () => {
   return (
     <div>
-      <nav style={{background: "#131313"}} className="navbar fixed-top navbar-expand-lg navbar-dark ">
+      <nav
+        style={{ background: "#131313" }}
+        className="navbar fixed-top navbar-expand-lg navbar-dark "
+      >
         <div className="container">
           <a className="navbar-brand" href="/">
-            <img src={logo} alt="" className="img-fluid me-2" width={50}/>
+            <img src={logo} alt="" className="img-fluid me-2" width={50} />
             Adventour.
           </a>
           <button
@@ -23,7 +26,10 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse justify-content-between"
+            id="navbarSupportedContent"
+          >
             <form className="d-flex">
               <input
                 className="form-control search-box me-2"
@@ -54,7 +60,35 @@ export const Navbar = () => {
                   About Us
                 </a>
               </li>
-              <button className="btn btn-primary p-1 px-3">Login</button>
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                  <li
+                    className="dropdown-item"
+                    onClick={() => {
+                      signInWithGooglePopup()
+                        .then((res) => console.log(res))
+                        .catch((res) => {
+                          alert("Something went wrong");
+                        });
+                    }}
+                  >
+                    Login With Google
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Login With Email
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </ul>
           </div>
         </div>

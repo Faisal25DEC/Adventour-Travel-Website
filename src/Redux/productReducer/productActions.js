@@ -4,6 +4,7 @@ import {
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
+  GET_STATE_PRODUCTS,
 } from "./productTypes";
 
 const createAction = (type, payload) => {
@@ -18,7 +19,7 @@ export const getProducts = (page) => async (dispatch) => {
     .get(`${baseUrl}/touristDestinations?_page=${page}&_limit=9`)
     .then((res) => {
       console.log(res.data);
-      dispatch(createAction(GET_PRODUCT_SUCCESS));
+      dispatch(createAction(GET_PRODUCT_SUCCESS, res.data));
     })
     .catch(() => {
       dispatch(GET_PRODUCT_FAILURE);
@@ -29,4 +30,14 @@ export const getRandomProducts = () => (dispatch) => {
     console.log(res.data);
     dispatch(createAction(GET_RANDOM_PRODUCTS, res.data));
   });
+};
+
+export const getStateProducts = (state) => async (dispatch) => {
+  console.log(state);
+  const apiRes = axios
+    .get(`${baseUrl}/touristDestinations?state_like=${state}`)
+    .then((res) => {
+      console.log(res.data);
+      dispatch(createAction(GET_STATE_PRODUCTS, res.data));
+    });
 };

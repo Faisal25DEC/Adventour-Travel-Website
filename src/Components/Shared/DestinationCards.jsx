@@ -1,18 +1,50 @@
 import React from "react";
-import './Shared.css'
+import "../DestinationCard/DestinationCard.css";
+import "./Shared.css";
+import location from "../../Assets/location.png";
+import star from "../../Assets/star.png";
+import durationIcon from "../../Assets/duration.png";
 
-
-export const DestinationCards = () => {
+export const DestinationCards = ({ onProduct, product }) => {
+  const { images = "", name, duration, price, state } = product;
+  // console.log(images);
+  const imageSource = images ? images : "";
   return (
     <div className="mb-5">
       <div className="card border-0 p-3">
-        <img src="https://img.freepik.com/free-photo/light-effect-trees-summer-sunset_1203-5718.jpg?w=996&t=st=1694590248~exp=1694590848~hmac=fe85dbafc059f6eb4a2afeb984148ce8654bba65ab90db18fd310cd17a060a3c" className="card-img-top card-img" alt="..." />
+        <img src={imageSource} className="card-img-top card-img" alt="..." />
         <div className="card-body">
-          <h3 style={{ color: "white"}}>Bali Bucket List - 10 Days</h3>
-          <p style={{ color: "#6c9999"}} className="card-text">
-            Bali, Indonesia
+          <h3 className="destination-card-title" style={{ color: "white" }}>
+            {" "}
+            <img className="location-icon" src={location} alt="" />
+            {name} - {duration} Days
+          </h3>
+          <p style={{ color: "#6c9999" }} className="card-text">
+            {state}, India
           </p>
-          <h2 style={{color: "white"}}><span style={{color: "#0cc0df"}}>$</span>35/<span style={{fontSize: "10px", color: "#6c9999"}}>Person</span></h2>
+          {onProduct && (
+            <div className="duration-rating-wrapper">
+              <div className="duration">
+                <div className="duration-icon">
+                  <img src={durationIcon} alt="" />
+                </div>
+
+                <p>duration</p>
+              </div>
+              <div className="rating">
+                <div className="rating-icon">
+                  <img src={star} alt="" />
+                </div>
+
+                <p>Star</p>
+              </div>
+            </div>
+          )}
+          <h2 style={{ color: "white" }}>
+            <span style={{ color: "#0cc0df" }}>$</span>
+            {price}/
+            <span style={{ fontSize: "10px", color: "#6c9999" }}>Person</span>
+          </h2>
         </div>
       </div>
     </div>
