@@ -51,13 +51,7 @@ const DestinationCard = () => {
         </div>
       </div>
 
-      <Pagination
-        style={{
-          color: "white",
-        }}
-        count={10}
-        color="primary"
-      />
+    
     </div>
   );
 };

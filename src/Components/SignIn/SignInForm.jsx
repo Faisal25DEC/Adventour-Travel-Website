@@ -11,6 +11,9 @@ import FormInput from "../FormInput/FormInput";
 
 import "./SignInForm.scss";
 // import Button from "..";
+import { useDispatch, useSelector } from "react-redux";
+import { userReducer } from "./../../Redux/userReducer/userReducer";
+import { initiateSignUp } from "../../Redux/userReducer/userActions";
 
 const defaultFormFields = {
   email: "",
@@ -20,6 +23,8 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const { signUp } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
 
   const signInWithGoole = async () => {
     try {
@@ -94,8 +99,13 @@ const SignInForm = () => {
           <button className="btn" type="submit" buttonType="default">
             Sign in
           </button>
-          <button className="btn google-btn" type="button" buttonType="google" onClick={signInWithGoole}>
-          <i className="fa-brands fa-google me-2"></i>Sign In With Google
+          <button
+            className="btn google-btn"
+            type="button"
+            buttonType="google"
+            onClick={signInWithGoole}
+          >
+            <i className="fa-brands fa-google me-2"></i>Sign In With Google
           </button>
           {/* <button
             onClick={async () => {
@@ -115,7 +125,17 @@ const SignInForm = () => {
           </button> */}
         </div>
         <div className="sign-up mt-3">
-          <p className="sub">Create an acoount with us. <span style={{color:"#0cc0df", cursor:"pointer"}}>Click here.</span></p>
+          <p className="sub">
+            Create an acoount with us.{" "}
+            <span
+              style={{ color: "#0cc0df", cursor: "pointer" }}
+              onClick={() => {
+                dispatch(initiateSignUp());
+              }}
+            >
+              Click here.
+            </span>
+          </p>
         </div>
       </form>
     </div>
