@@ -13,11 +13,13 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export const ProductSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [adultCount, setAdultCount] = useState(0)
+
   return (
     <div style={{ marginTop: "8%" }}>
       <div className="container">
         <div className="row">
-          <div className="col-5">
+          <div className="col-lg-4 col-sm-12">
             <Swiper
               style={{
                 "--swiper-navigation-color": "#fff",
@@ -111,7 +113,6 @@ export const ProductSection = () => {
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
-
             >
               <SwiperSlide>
                 <img
@@ -185,8 +186,8 @@ export const ProductSection = () => {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className="col-1"></div>
-          <div className="col-6">
+          <div className="col-2"></div>
+          <div className="col-lg-6 col-sm-12">
             <div className="details-card rounded grey-card p-4">
               <div className="row">
                 <div className="col-6">
@@ -208,11 +209,13 @@ export const ProductSection = () => {
                 Hugh Rose Island is a sanctuary for turtles.
               </p>
               <div className="d-flex justify-content-between">
-                <h4>₹765/<span style={{ color: "#0cc0df" }}>day</span></h4>
+                <h4>
+                  ₹765/<span style={{ color: "#0cc0df" }}>day</span>
+                </h4>
                 <h4>10 Days</h4>
               </div>
 
-              <div className="booking-dates d-flex justify-content-between mt-5">
+              <div className="booking-dates d-flex justify-content-around mt-5">
                 <div className="from">
                   <label htmlFor="">From</label>
                   <input
@@ -221,6 +224,18 @@ export const ProductSection = () => {
                     name=""
                     id=""
                   />
+                </div>
+                <div className="persons ms-3">
+                  <label htmlFor="">Adults</label>
+                  <div className="d-flex gap-2">
+                    <p onClick={() => setAdultCount(adultCount+1)}>
+                      <i class="fa-solid fa-chevron-up"></i>
+                    </p>
+                    <p >{adultCount}</p>
+                    <p onClick={() => setAdultCount(adultCount-1)}>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                  </div>
                 </div>
                 <div className="till">
                   <label htmlFor="">Till</label>
@@ -232,7 +247,7 @@ export const ProductSection = () => {
                   />
                 </div>
               </div>
-              <Accordion defaultActiveKey="0" style={{marginTop: "2rem"}}>
+              <Accordion defaultActiveKey="0" style={{ marginTop: "2rem" }}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>History</Accordion.Header>
                   <Accordion.Body>

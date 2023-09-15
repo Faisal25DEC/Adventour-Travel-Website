@@ -1,5 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import styles from '../../Assets/MapStyles.json'
+
 
 export const MapComponent = () => {
   const defaultProps = {
@@ -17,6 +19,7 @@ export const MapComponent = () => {
           bootstrapURLKeys={{ key: "" }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
+          // style={styles}
         ></GoogleMapReact>
       </div>
     </div>

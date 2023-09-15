@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useEffect } from "react";
 import { getRedirectResult } from "firebase/auth";
 import SignUpForm from "../../Components/SignUp/SignUpForm";
@@ -26,7 +27,7 @@ const Authentication = () => {
         </div>
         <div className="col-2"></div>
         <div className="col-lg-5 d-none d-md-block d-lg-block banner-img">
-          <img src={imageSignIn} className="img-fluid" alt="" />
+          <img src={imageSignUp} className="img-fluid" alt="" />
         </div>
       </div>
     </div>
