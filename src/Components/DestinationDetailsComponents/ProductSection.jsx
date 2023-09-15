@@ -13,6 +13,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export const ProductSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [adultCount, setAdultCount] = useState(0)
 
   return (
     <div style={{ marginTop: "8%" }}>
@@ -112,7 +113,6 @@ export const ProductSection = () => {
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
-
             >
               <SwiperSlide>
                 <img
@@ -209,11 +209,13 @@ export const ProductSection = () => {
                 Hugh Rose Island is a sanctuary for turtles.
               </p>
               <div className="d-flex justify-content-between">
-                <h4>₹765/<span style={{ color: "#0cc0df" }}>day</span></h4>
+                <h4>
+                  ₹765/<span style={{ color: "#0cc0df" }}>day</span>
+                </h4>
                 <h4>10 Days</h4>
               </div>
 
-              <div className="booking-dates d-flex justify-content-between mt-5">
+              <div className="booking-dates d-flex justify-content-around mt-5">
                 <div className="from">
                   <label htmlFor="">From</label>
                   <input
@@ -223,9 +225,17 @@ export const ProductSection = () => {
                     id=""
                   />
                 </div>
-                <div className="persons">
-                  <label htmlFor="">No. of People</label>
-                  <input type="number" className="form-control date-select" name="" id="" />
+                <div className="persons ms-3">
+                  <label htmlFor="">Adults</label>
+                  <div className="d-flex gap-2">
+                    <p onClick={() => setAdultCount(adultCount+1)}>
+                      <i class="fa-solid fa-chevron-up"></i>
+                    </p>
+                    <p >{adultCount}</p>
+                    <p onClick={() => setAdultCount(adultCount-1)}>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                  </div>
                 </div>
                 <div className="till">
                   <label htmlFor="">Till</label>
@@ -237,7 +247,7 @@ export const ProductSection = () => {
                   />
                 </div>
               </div>
-              <Accordion defaultActiveKey="0" style={{marginTop: "2rem"}}>
+              <Accordion defaultActiveKey="0" style={{ marginTop: "2rem" }}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>History</Accordion.Header>
                   <Accordion.Body>
