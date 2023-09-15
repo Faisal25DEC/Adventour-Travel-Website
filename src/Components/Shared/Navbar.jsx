@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../Assets/icons/adventour.png";
 import "../Shared/Shared.css";
+import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -60,7 +61,35 @@ export const Navbar = () => {
                   About Us
                 </a>
               </li>
-              <button className="btn btn-primary p-1 px-3">Login</button>
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                  <li
+                    className="dropdown-item"
+                    onClick={() => {
+                      signInWithGooglePopup()
+                        .then((res) => console.log(res))
+                        .catch((res) => {
+                          alert("Something went wrong");
+                        });
+                    }}
+                  >
+                    Login With Google
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Login With Email
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </ul>
           </div>
         </div>

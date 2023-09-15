@@ -1,3 +1,8 @@
+:root {
+  --styled-text-color: #0cc0df;
+  --primary-background-color: #1b1b1b;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -33,6 +38,25 @@ a:hover {
 
 .card-img {
   border-radius: 10px !important;
-  width: 90%;
+  width: 22rem;
+  height: 20rem;
   margin: auto;
+}
+.location-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 3px;
+}
+.destination-card-title {
+  font-size: 1.2rem;
+}
+.dropdown-menu {
+  background-color: var(--primary-background-color);
+}
+.dropdown-item {
+  color: white;
+}
+.dropdown-item:hover {
+  background-color: rgb(47, 83, 247);
+  color: white;
 }

@@ -1,7 +1,12 @@
-import { GET_RANDOM_PRODUCTS } from "./productTypes";
+import {
+  GET_PRODUCT_SUCCESS,
+  GET_RANDOM_PRODUCTS,
+  GET_STATE_PRODUCTS,
+} from "./productTypes";
 
 const initialState = {
   productsPerPage: [],
+  stateProducts: [],
   totalProducts: [],
   randomProducts: [],
   isLoading: false,
@@ -10,6 +15,18 @@ const initialState = {
 
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productsPerPage: [...payload],
+      };
+    }
+    case GET_STATE_PRODUCTS: {
+      return {
+        ...state,
+        stateProducts: [...payload],
+      };
+    }
     case GET_RANDOM_PRODUCTS: {
       const tempRandomArray = [];
       for (let i = 0; i < 6; i++) {
