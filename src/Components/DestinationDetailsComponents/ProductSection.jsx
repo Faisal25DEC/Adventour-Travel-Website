@@ -13,11 +13,12 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export const ProductSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <div style={{ marginTop: "8%" }}>
       <div className="container">
         <div className="row">
-          <div className="col-5">
+          <div className="col-lg-4 col-sm-12">
             <Swiper
               style={{
                 "--swiper-navigation-color": "#fff",
@@ -185,8 +186,8 @@ export const ProductSection = () => {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className="col-1"></div>
-          <div className="col-6">
+          <div className="col-2"></div>
+          <div className="col-lg-6 col-sm-12">
             <div className="details-card rounded grey-card p-4">
               <div className="row">
                 <div className="col-6">
@@ -221,6 +222,10 @@ export const ProductSection = () => {
                     name=""
                     id=""
                   />
+                </div>
+                <div className="persons">
+                  <label htmlFor="">No. of People</label>
+                  <input type="number" className="form-control date-select" name="" id="" />
                 </div>
                 <div className="till">
                   <label htmlFor="">Till</label>

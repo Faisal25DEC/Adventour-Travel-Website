@@ -4,8 +4,12 @@
 }
 
 .date-select {
-    background-color: #1b1b1b;
+    background-color: #131313;
     color: white;
+    border: 0;
+    height: 30px;
+    padding: 2%;
+    border-bottom: 1px solid #131313;
 }
 
 .accordion-button {
@@ -27,7 +31,12 @@
   object-fit: fill;
 }
 
-.mySwiper
+.mySwiper {
+  margin-top: 5%;
+  padding: 2%;
+  opacity: 0.8;
+  background-color: #1b1b1b;
+}
 
 gmp-map {
   height: 100%;

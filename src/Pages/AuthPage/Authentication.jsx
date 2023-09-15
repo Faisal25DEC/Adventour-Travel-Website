@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { getRedirectResult } from "firebase/auth";
 import SignUpForm from "../../Components/SignUp/SignUpForm";
@@ -9,6 +9,7 @@ import imageSignUp from '../../Assets/sign-up-image.png'
 // import Button from "../../Components/button/button.component";
 
 const Authentication = () => {
+  const [state, setState] = useState("sign-in");
   return (
     <div className="container auth-card p-5 mt-5">
       <div className="row">
@@ -24,7 +25,7 @@ const Authentication = () => {
         </div>
         <div className="col-2"></div>
         <div className="col-lg-5 d-none d-md-block d-lg-block banner-img">
-          <img src={imageSignIn} className="img-fluid" alt="" />
+          <img src={imageSignUp} className="img-fluid" alt="" />
         </div>
       </div>
     </div>
