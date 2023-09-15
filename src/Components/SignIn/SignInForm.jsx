@@ -10,7 +10,7 @@ import { updateProfile } from "firebase/auth";
 import FormInput from "../FormInput/FormInput";
 
 import "./SignInForm.scss";
-// import Button from "../button/button.component";
+// import Button from "..";
 
 const defaultFormFields = {
   email: "",
@@ -71,9 +71,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-in-container">
-      <h2>Already have an account?</h2>
-      <span>Sign in with your email and password</span>
+    <div>
       <form action="" onSubmit={handleSubmit}>
         <FormInput
           label="Email"
@@ -93,13 +91,13 @@ const SignInForm = () => {
           value={password}
         />
         <div className="buttons-container">
-          {/* <Button type="submit" buttonType="default"> */}
+          <button className="btn" type="submit" buttonType="default">
             Sign in
-          {/* </Button> */}
-          {/* <Button type="button" buttonType="google" onClick={signInWithGoole}> */}
-            Sign In With Google
-          {/* </Button> */}
-          <button
+          </button>
+          <button className="btn google-btn" type="button" buttonType="google" onClick={signInWithGoole}>
+          <i className="fa-brands fa-google me-2"></i>Sign In With Google
+          </button>
+          {/* <button
             onClick={async () => {
               updateProfile(auth.currentUser, {
                 cartArray: [...auth.currentUser.cartArray, "faisa"],
@@ -114,7 +112,10 @@ const SignInForm = () => {
             }}
           >
             updateUserDoc
-          </button>
+          </button> */}
+        </div>
+        <div className="sign-up mt-3">
+          <p className="sub">Create an acoount with us. <span style={{color:"#0cc0df", cursor:"pointer"}}>Click here.</span></p>
         </div>
       </form>
     </div>

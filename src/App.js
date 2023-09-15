@@ -7,6 +7,13 @@ import {Navbar} from './Components/Shared/Navbar'
 import { Home } from "./Pages/Home";
 function App() {
   return <div>
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     <Navbar/>
   <AllRoutes/>
     <Footer/>

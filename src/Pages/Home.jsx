@@ -8,13 +8,6 @@ import { Testimonials } from "../Components/HomeComponents/Testimonials";
 export const Home = () => {
   return (
     <div>
-      <div class="background">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <HomeBanner />
       <TopDestinations />
       <HolidayEasily />
