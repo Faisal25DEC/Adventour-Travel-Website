@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: white;
+}
 .btn {
   background-color: #0cc0df;
   color: #131313;
@@ -10,7 +17,7 @@
 }
 
 .search-box::placeholder {
-    color: rgb(122, 122, 122);
+  color: rgb(122, 122, 122);
 }
 
 .card {
@@ -18,7 +25,8 @@
   border-radius: 20px;
 }
 
-.card:hover, .card-body:hover {
+.card:hover,
+.card-body:hover {
   background-color: #1b1b1b;
   transition: 0.5s;
 }

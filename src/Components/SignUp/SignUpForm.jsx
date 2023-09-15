@@ -7,6 +7,11 @@ import {
 import FormInput from "../FormInput/FormInput";
 import { Form } from "react-router-dom";
 import "./SignUpForm.scss";
+import {
+  initialLogin,
+  initiateSignUp,
+} from "../../Redux/userReducer/userActions";
+import { useDispatch } from "react-redux";
 // import Button from "../button/button.component";
 
 const defaultFormFields = {
@@ -19,6 +24,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -88,10 +94,21 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-
-        <button className="btn" buttonType="default">
-          Sign Up
-        </button>
+        <div className="d-flex justify-content-between align-items-center">
+          <button className="btn" buttonType="default">
+            Sign Up
+          </button>
+          <div className="sign-in-go-back">
+            <span
+              style={{ color: "#0cc0df", cursor: "pointer" }}
+              onClick={() => {
+                dispatch(initialLogin());
+              }}
+            >
+              Go back to Sign In
+            </span>
+          </div>
+        </div>
       </form>
     </div>
   );

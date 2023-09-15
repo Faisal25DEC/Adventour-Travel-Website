@@ -1,4 +1,9 @@
-import { LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from "./userTypes";
+import {
+  INITIATE_LOGIN,
+  LOGIN_USER,
+  LOGOUT_USER,
+  SIGNUP_USER,
+} from "./userTypes";
 
 const createAction = (type, payload) => {
   return { type, payload };
@@ -13,4 +18,7 @@ export const logoutUser = () => {
 
 export const initiateSignUp = () => {
   return createAction(SIGNUP_USER);
+};
+export const initialLogin = () => {
+  return createAction(INITIATE_LOGIN);
 };

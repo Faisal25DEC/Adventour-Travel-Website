@@ -1,4 +1,9 @@
-import { LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from "./userTypes";
+import {
+  INITIATE_LOGIN,
+  LOGIN_USER,
+  LOGOUT_USER,
+  SIGNUP_USER,
+} from "./userTypes";
 
 const initialState = {
   isAuth: false,
@@ -28,6 +33,14 @@ export const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         isAuth: false,
         userDetails: null,
+      };
+    }
+    case INITIATE_LOGIN: {
+      return {
+        ...state,
+        isAuth: false,
+        userDetails: null,
+        signUp: false,
       };
     }
     default: {

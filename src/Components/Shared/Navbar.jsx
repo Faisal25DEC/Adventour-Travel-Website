@@ -1,17 +1,20 @@
 import React from "react";
-import logo from '../../Assets/icons/adventour.png'
-import '../Shared/Shared.css'
-
+import logo from "../../Assets/icons/adventour.png";
+import "../Shared/Shared.css";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
     <div>
-      <nav style={{background: "#131313"}} className="navbar fixed-top navbar-expand-lg navbar-dark ">
+      <nav
+        style={{ background: "#131313" }}
+        className="navbar fixed-top navbar-expand-lg navbar-dark "
+      >
         <div className="container">
-          <a className="navbar-brand" href="/">
-            <img src={logo} alt="" className="img-fluid me-2" width={50}/>
+          <Link to="/" className="nav-brand">
+            <img src={logo} alt="" className="img-fluid me-2" width={50} />
             Adventour.
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,7 +26,10 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse justify-content-between"
+            id="navbarSupportedContent"
+          >
             <form className="d-flex">
               <input
                 className="form-control search-box me-2"

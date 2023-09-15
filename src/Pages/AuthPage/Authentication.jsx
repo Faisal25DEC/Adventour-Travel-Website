@@ -27,7 +27,11 @@ const Authentication = () => {
         </div>
         <div className="col-2"></div>
         <div className="col-lg-5 d-none d-md-block d-lg-block banner-img">
-          <img src={imageSignUp} className="img-fluid" alt="" />
+          <img
+            src={signUp ? imageSignUp : imageSignIn}
+            className="img-fluid"
+            alt=""
+          />
         </div>
       </div>
     </div>
