@@ -5,12 +5,14 @@ import {
   createUserDocumentFromAuth,
   getUserDocumentFromAuth,
   signInWithGooglePopup,
+  signOutUser,
 } from "../../Utils/firebase/firebase";
 import { Link } from "react-router-dom";
 import { userReducer } from "./../../Redux/userReducer/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../Redux/userReducer/userActions";
 import { getAllProducts } from "../../Redux/productReducer/productActions";
+import { signOut } from "firebase/auth";
 
 export const Navbar = () => {
   const { isAuth, userDetails } = useSelector((state) => state.userReducer);
@@ -115,7 +117,8 @@ export const Navbar = () => {
                 <button
                   style={{ height: "2.5rem" }}
                   className="btn"
-                  onClick={() => {
+                  onClick={async () => {
+                    await signOutUser();
                     dispatch(logoutUser());
                   }}
                 >
