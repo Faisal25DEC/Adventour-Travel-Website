@@ -19,6 +19,7 @@ a:hover {
   background: #1b1b1b;
   outline: none;
   border: none;
+  width: 400px;
 }
 
 .search-box::placeholder {
@@ -38,8 +39,8 @@ a:hover {
 
 .card-img {
   border-radius: 10px !important;
-  width: 22rem;
-  height: 20rem;
+  width: 20rem;
+  height: 19rem;
   margin: auto;
 }
 .location-icon {
@@ -59,4 +60,10 @@ a:hover {
 .dropdown-item:hover {
   background-color: rgb(47, 83, 247);
   color: white;
+}
+
+@media only screen and (max-width: 720px) {
+  .search-box {
+    width: 100% !important;
+  }
 }

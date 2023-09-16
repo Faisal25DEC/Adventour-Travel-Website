@@ -43,9 +43,9 @@ const Destinations = () => {
   }, [page]);
 
   return (
-    <div className="destinations-wrapper">
+    <div className="destinations-wrapper container">
       <DestinationBanner />
-      <div className="destination-cards-wrapper">
+      <div className="destination-cards-wrapper mt-5">
         {productsPerPage?.map((productPerPage) => {
           return (
             productPerPage && (

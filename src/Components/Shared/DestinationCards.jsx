@@ -11,8 +11,12 @@ export const DestinationCards = ({ onProduct, product }) => {
   const imageSource = images ? images : "";
   return (
     <div className="mb-5">
-      <div className="card border-0 p-3">
+      <div className="card">
         <img src={imageSource} className="card-img-top card-img" alt="..." />
+        <span style={{background: "#0cc0df", color: "#1b1b1b"}} class="position-absolute top-0 start-50 translate-middle badge rounded-pill">
+          99+
+          <span class="visually-hidden">unread messages</span>
+        </span>
         <div className="card-body">
           <h3 className="destination-card-title" style={{ color: "white" }}>
             {" "}
@@ -24,13 +28,6 @@ export const DestinationCards = ({ onProduct, product }) => {
           </p>
           {onProduct && (
             <div className="duration-rating-wrapper">
-              <div className="duration">
-                <div className="duration-icon">
-                  <img src={durationIcon} alt="" />
-                </div>
-
-                <p>duration</p>
-              </div>
               <div className="rating">
                 <div className="rating-icon">
                   <img src={star} alt="" />
@@ -43,7 +40,7 @@ export const DestinationCards = ({ onProduct, product }) => {
           <h2 style={{ color: "white" }}>
             <span style={{ color: "#0cc0df" }}>$</span>
             {price}/
-            <span style={{ fontSize: "10px", color: "#6c9999" }}>Person</span>
+            <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
           </h2>
         </div>
       </div>

@@ -12,7 +12,7 @@ export const Navbar = () => {
         className="navbar fixed-top navbar-expand-lg navbar-dark "
       >
         <div className="container">
-          <Link to="/" className="nav-brand">
+          <Link to="/" className="nav-brand me-2">
             <img src={logo} alt="" className="img-fluid me-2" width={50} />
             Adventour.
           </Link>
@@ -31,9 +31,9 @@ export const Navbar = () => {
             className="collapse navbar-collapse justify-content-between"
             id="navbarSupportedContent"
           >
-            <form className="d-flex">
+            <form className="">
               <input
-                className="form-control search-box me-2"
+                className="form-control search-box"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
@@ -68,7 +68,7 @@ export const Navbar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown button
+                 Login
                 </button>
                 <ul class="dropdown-menu">
                   <li
@@ -84,7 +84,7 @@ export const Navbar = () => {
                     Login With Google
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/auth">
                       Login With Email
                     </a>
                   </li>
