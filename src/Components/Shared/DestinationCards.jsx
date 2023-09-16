@@ -6,7 +6,7 @@ import star from "../../Assets/star.png";
 import durationIcon from "../../Assets/duration.png";
 
 export const DestinationCards = ({ onProduct, product }) => {
-  const { images = "", name, duration, price, state } = product;
+  const { images = "", name, duration, price, state, ratings } = product;
   // console.log(images);
   const imageSource = images ? images : "";
   return (
@@ -17,7 +17,7 @@ export const DestinationCards = ({ onProduct, product }) => {
           style={{ background: "#0cc0df", color: "#1b1b1b" }}
           class="position-absolute top-0 start-50 translate-middle badge rounded-pill"
         >
-          4.5
+          {ratings}
           <span class="visually-hidden">unread messages</span>
         </span>
         <div className="card-body">
