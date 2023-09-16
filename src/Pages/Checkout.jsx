@@ -161,11 +161,11 @@ const Checkout = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  return (<div>
+  return (<div style={{marginTop: "8%"}}>
       <Stepper currentStep={1} />
     <div className="checkout-container">
       
-      <h2>Checkout</h2>
+      {/* <h2>Checkout</h2> */}
       <div className="checkout-content">
         <div className="checkout-form-container">
           <form onSubmit={handleSubmit} className="checkout-form">
@@ -230,7 +230,7 @@ const Checkout = () => {
                 Use as Billing Address
               </label>
             </div>
-            <button type="submit">Proceed to Payment</button>
+            <button type="submit" className='btn'>Proceed to Payment</button>
           </form>
         </div>
         <div className="checkout-image-container">
