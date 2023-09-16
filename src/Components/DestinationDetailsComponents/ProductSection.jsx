@@ -32,15 +32,6 @@ export const ProductSection = () => {
               className="mySwiper2"
             >
               <SwiperSlide>
-                <div className="img-container">
-                  <img
-                    className="test"
-                    src="https://as2.ftcdn.net/v2/jpg/00/91/61/13/1000_F_91611321_Uqu1dGIIhXxRuTqT5nnvNf5gdn2mHNMb.jpg"
-                    alt=""
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
                 <img
                   className="img-fluid"
                   src="https://swiperjs.com/demos/images/nature-2.jpg"
@@ -231,7 +222,7 @@ export const ProductSection = () => {
                     <p onClick={() => setAdultCount(adultCount+1)}>
                       <i class="fa-solid fa-chevron-up"></i>
                     </p>
-                    <p >{adultCount}</p>
+                    <p style={{background: "#131313"}} className="rounded px-2 py-1">{adultCount}</p>
                     <p onClick={() => setAdultCount(adultCount-1)}>
                       <i class="fa-solid fa-chevron-down"></i>
                     </p>
