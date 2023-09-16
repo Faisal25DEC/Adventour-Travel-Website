@@ -6,8 +6,16 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAtl0qmKVZH9XjNE71M9lmcAA-t88wdMJI",
@@ -60,6 +68,14 @@ export const createUserDocumentFromAuth = async (
   return userDocRef;
 };
 
+export const getUserDocumentFromAuth = async (user) => {
+  const userDocRef = doc(db, "users", user.uid);
+  console.log(userDocRef);
+
+  const userSnapshot = await getDoc(userDocRef);
+  return userSnapshot;
+};
+
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
@@ -70,4 +86,19 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
+};
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
+
+export const updateBookings = async (user, bookedDestination) => {
+  const destinationRef = doc(db, "users", user.uid);
+
+  const userSnapshot = await getDoc(destinationRef);
+  const { bookings } = userSnapshot.data();
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(destinationRef, {
+    bookings: [...bookings, bookedDestination],
+  });
 };

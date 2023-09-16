@@ -2,7 +2,7 @@ import {
   INITIATE_LOGIN,
   LOGIN_USER,
   LOGOUT_USER,
-  SIGNUP_USER,
+  INITIATE_SIGNUP,
 } from "./userTypes";
 
 const createAction = (type, payload) => {
@@ -17,8 +17,12 @@ export const logoutUser = () => {
 };
 
 export const initiateSignUp = () => {
-  return createAction(SIGNUP_USER);
+  return createAction(INITIATE_SIGNUP);
 };
 export const initialLogin = () => {
   return createAction(INITIATE_LOGIN);
+};
+
+export const setCurrentUser = (user) => {
+  createAction();
 };

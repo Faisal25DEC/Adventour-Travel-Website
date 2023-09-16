@@ -1,102 +1,107 @@
-import React, { useState } from "react";
-import "./Pagination.css";
-const Pagination = ({ totalPages, page, onPageChange }) => {
-  const [currentPage, setCurrentPage] = useState(page);
+export const PaginationComp = ({ pageCount, pageIndex, setPageIndex }) => {
+  let pagination = [];
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    onPageChange(pageNumber);
-  };
+  let pageCountSet = [];
+  for (let i = 1; i <= pageCount; i++) {
+    pageCountSet.push(i);
+  }
 
-  const generatePaginationItems = () => {
-    const paginationItems = [];
+  let finalIndexes = [];
 
-    let liTag = "";
-    let beforePage = currentPage - 1;
-    let afterPage = currentPage + 1;
+  switch (pageCount > 5) {
+    case true:
+      switch (pageIndex) {
+        case 1:
+          //if on first page, show from 1-4 and then last page number
+          if (pageIndex === 1) {
+            finalIndexes = pageCountSet.slice(pageIndex - 1, pageIndex + 3);
+            finalIndexes.push(pageCount);
+            finalIndexes.splice(finalIndexes.length - 1, 0, "...");
+          }
+          break;
 
-    if (beforePage < 0) beforePage = 0;
+        //if on last page, show first page and last 4 page numbers
+        case pageCountSet[pageCountSet.length - 1]:
+          if (pageIndex === pageCountSet[pageCountSet.length - 1]) {
+            finalIndexes = pageCountSet.slice(pageIndex - 4, pageIndex);
+            finalIndexes.unshift(1);
+            finalIndexes.splice(1, 0, "...");
+          }
+          break;
 
-    if (currentPage > 1) {
-      paginationItems.push({
-        page: currentPage - 1,
-        label: "Prev",
-        className: "btn prev",
-      });
-    }
+        //if on second page, show from 2-5 and last page number
+        case pageCountSet[1]:
+          if (pageIndex === pageCountSet[1]) {
+            finalIndexes = pageCountSet.slice(0, pageIndex + 2);
+            finalIndexes.push(pageCount);
+            finalIndexes.splice(finalIndexes.length - 1, 0, "...");
+          }
+          break;
 
-    if (currentPage > 2) {
-      paginationItems.push({ page: 1, label: "1", className: "first numb" });
-      if (currentPage > 3) {
-        paginationItems.push({ label: "...", className: "dots" });
+        //if on last but one page, show last 5 page numbers
+        case pageCountSet[pageCountSet.length - 2]:
+          if (pageIndex === pageCountSet[pageCountSet.length - 2]) {
+            finalIndexes = pageCountSet.slice(pageIndex - 3, pageIndex + 1);
+            finalIndexes.unshift(1);
+            finalIndexes.splice(1, 0, "...");
+          }
+          break;
+
+        default:
+          //if numbers in between, show one on each side as well as first and last page numbers
+          finalIndexes = pageCountSet.slice(pageIndex - 2, pageIndex + 1);
+          finalIndexes.unshift(1);
+          finalIndexes.push(pageCount);
+          finalIndexes.splice(finalIndexes.length - 1, 0, "...");
+          finalIndexes.splice(1, 0, "...");
+
+          break;
       }
-    }
+      break;
 
-    if (currentPage === totalPages) {
-      beforePage = beforePage - 2;
-    } else if (currentPage === totalPages - 1) {
-      beforePage = beforePage - 1;
-    }
-
-    if (currentPage === 1) {
-      afterPage = afterPage + 2;
-    } else if (currentPage === 2) {
-      afterPage = afterPage + 1;
-    }
-
-    for (let plength = beforePage; plength <= afterPage; plength++) {
-      if (plength > totalPages) {
-        continue;
+    default:
+      for (let i = 1; i <= pageCount; i++) {
+        pagination.push(
+          <>
+            <li
+              key={i}
+              className={`page-item${pageIndex === i ? " active" : ""}`}
+              aria-current="page"
+            >
+              <a onClick={() => setPageIndex(i)}>
+                <span className="page-link">{i}</span>
+              </a>
+            </li>
+          </>
+        );
       }
-      if (plength === 0) {
-        plength = plength + 1;
-      }
-      const activeClass = plength === currentPage ? "active" : "";
-      paginationItems.push({
-        page: plength,
-        label: plength.toString(),
-        className: `numb ${activeClass}`,
-      });
-    }
+      break;
+  }
 
-    if (currentPage < totalPages - 1) {
-      if (currentPage < totalPages - 2) {
-        paginationItems.push({ label: "...", className: "dots" });
-      }
-      paginationItems.push({
-        page: totalPages,
-        label: totalPages.toString(),
-        className: "last numb",
-      });
-    }
+  finalIndexes.map((index) => {
+    pagination.push(
+      <>
+        {index !== "..." && (
+          <>
+            <li
+              key={index}
+              className={`page-item${pageIndex === index ? " active" : ""}`}
+              aria-current="page"
+            >
+              <a onClick={() => setPageIndex(index)}>
+                <span className="page-link">{index}</span>
+              </a>
+            </li>
+          </>
+        )}
+        {index === "..." && (
+          <>
+            <li className="page-item">...</li>
+          </>
+        )}
+      </>
+    );
+  });
 
-    if (currentPage < totalPages) {
-      paginationItems.push({
-        page: currentPage + 1,
-        label: "Next",
-        className: "btn next",
-      });
-    }
-
-    // Add logic for generating pagination items here
-    // You can adapt your original logic to create paginationItems
-
-    return paginationItems;
-  };
-
-  return (
-    <ul className="pagination">
-      {generatePaginationItems().map((item, index) => (
-        <li
-          key={index}
-          className={`numb ${item.page === currentPage ? "active" : ""}`}
-          onClick={() => handlePageChange(item.page)}
-        >
-          <span>{item.page}</span>
-        </li>
-      ))}
-    </ul>
-  );
+  return <ul className="pagination">{pagination}</ul>;
 };
-
-export default Pagination;

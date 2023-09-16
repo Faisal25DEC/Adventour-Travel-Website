@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getProducts,
   getStateProducts,
+  setStateProductsNull,
 } from "../../Redux/productReducer/productActions";
 import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
 import DestinationCard from "../../Components/DestinationCard/DestinationCard";
@@ -22,10 +23,13 @@ import { getPlaceImages } from "../../Utils/unplash/unplash";
 import { useLocation } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { DestinationCards } from "../../Components/Shared/DestinationCards";
-import Pagination from "../../Components/Pagination/Pagination";
+import Pagination, {
+  PaginationComp,
+} from "../../Components/Pagination/Pagination";
 const Destinations = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [page, setPage] = useState(1);
+  const [pageIndex, setPageIndex] = useState(1);
   const { productsPerPage, stateProducts } = useSelector(
     (state) => state.productReducer
   );
@@ -41,20 +45,42 @@ const Destinations = () => {
     }
     dispatch(getProducts(page));
   }, [page]);
-
+  console.log(productsPerPage);
   return (
     <div className="destinations-wrapper">
       <DestinationBanner />
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          dispatch(setStateProductsNull());
+          dispatch(getProducts(page));
+          setSearchParams({});
+        }}
+      >
+        see All
+      </button>
       <div className="destination-cards-wrapper">
-        {productsPerPage?.map((productPerPage) => {
-          return (
-            productPerPage && (
-              <DestinationCards onProduct={true} product={productPerPage} />
-            )
-          );
-        })}
+        {stateProducts.length
+          ? stateProducts.map((product) => {
+              return (
+                product && (
+                  <DestinationCards onProduct={true} product={product} />
+                )
+              );
+            })
+          : productsPerPage?.map((productPerPage) => {
+              return (
+                productPerPage && (
+                  <DestinationCards onProduct={true} product={productPerPage} />
+                )
+              );
+            })}
       </div>
-      <Pagination page={page} />
+      <PaginationComp
+        pageCount={10}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+      />
     </div>
   );
 };

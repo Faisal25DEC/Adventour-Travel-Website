@@ -2,6 +2,7 @@ import {
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
   GET_STATE_PRODUCTS,
+  SET_STATE_PRODUCTS_NULL,
 } from "./productTypes";
 
 const initialState = {
@@ -37,6 +38,12 @@ export const productReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         randomProducts: tempRandomArray,
+      };
+    }
+    case SET_STATE_PRODUCTS_NULL: {
+      return {
+        ...state,
+        stateProducts: [],
       };
     }
     default: {

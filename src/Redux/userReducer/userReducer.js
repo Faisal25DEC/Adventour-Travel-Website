@@ -1,8 +1,8 @@
 import {
   INITIATE_LOGIN,
+  INITIATE_SIGNUP,
   LOGIN_USER,
   LOGOUT_USER,
-  SIGNUP_USER,
 } from "./userTypes";
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
 
 export const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case SIGNUP_USER: {
+    case INITIATE_SIGNUP: {
       return {
         ...state,
         isAuth: false,

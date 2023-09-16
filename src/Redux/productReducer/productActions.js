@@ -5,6 +5,7 @@ import {
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
   GET_STATE_PRODUCTS,
+  SET_STATE_PRODUCTS_NULL,
 } from "./productTypes";
 
 const createAction = (type, payload) => {
@@ -40,4 +41,8 @@ export const getStateProducts = (state) => async (dispatch) => {
       console.log(res.data);
       dispatch(createAction(GET_STATE_PRODUCTS, res.data));
     });
+};
+
+export const setStateProductsNull = () => {
+  return createAction(SET_STATE_PRODUCTS_NULL);
 };
