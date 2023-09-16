@@ -13,8 +13,11 @@ export const DestinationCards = ({ onProduct, product }) => {
     <div className="mb-5">
       <div className="card">
         <img src={imageSource} className="card-img-top card-img" alt="..." />
-        <span style={{background: "#0cc0df", color: "#1b1b1b"}} class="position-absolute top-0 start-50 translate-middle badge rounded-pill">
-          99+
+        <span
+          style={{ background: "#0cc0df", color: "#1b1b1b" }}
+          class="position-absolute top-0 start-50 translate-middle badge rounded-pill"
+        >
+          4.5
           <span class="visually-hidden">unread messages</span>
         </span>
         <div className="card-body">
@@ -26,7 +29,7 @@ export const DestinationCards = ({ onProduct, product }) => {
           <p style={{ color: "#6c9999" }} className="card-text">
             {state}, India
           </p>
-          {onProduct && (
+          {/* {onProduct && (
             <div className="duration-rating-wrapper">
               <div className="rating">
                 <div className="rating-icon">
@@ -36,12 +39,15 @@ export const DestinationCards = ({ onProduct, product }) => {
                 <p>Star</p>
               </div>
             </div>
-          )}
-          <h2 style={{ color: "white" }}>
-            <span style={{ color: "#0cc0df" }}>$</span>
-            {price}/
-            <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
-          </h2>
+          )} */}
+          <div className="d-flex justify-content-between">
+            <h2 style={{ color: "white" }}>
+              <span style={{ color: "#0cc0df" }}>$</span>
+              {price}/
+              <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
+            </h2>
+            <button className="btn">Book</button>
+          </div>
         </div>
       </div>
     </div>

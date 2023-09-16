@@ -67,3 +67,7 @@ a:hover {
     width: 100% !important;
   }
 }
+
+.btn:hover {
+  color: white;
+}
