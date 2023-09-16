@@ -47,7 +47,7 @@ const Destinations = () => {
   }, [page]);
   console.log(productsPerPage);
   return (
-    <div className="destinations-wrapper">
+    <div className="destinations-wrapper container">
       <DestinationBanner />
       <button
         className="btn btn-primary"
