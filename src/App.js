@@ -23,13 +23,13 @@ function App() {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user, { bookings: ["test"] });
+        const data = getUserDocumentFromAuth(user);
+        data.then((res) => {
+          console.log(res.data());
+          dispatch(loginUser(res.data()));
+        });
+        console.log(user);
       }
-      const data = getUserDocumentFromAuth(user);
-      data.then((res) => {
-        console.log(res.data());
-      });
-      console.log(user);
-      dispatch(loginUser(user));
     });
 
     return unsubscribe;

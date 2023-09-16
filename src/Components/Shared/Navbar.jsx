@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../Assets/icons/adventour.png";
 import "../Shared/Shared.css";
-import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
+import {
+  createUserDocumentFromAuth,
+  getUserDocumentFromAuth,
+  signInWithGooglePopup,
+} from "../../Utils/firebase/firebase";
 import { Link } from "react-router-dom";
+import { userReducer } from "./../../Redux/userReducer/userReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, logoutUser } from "../../Redux/userReducer/userActions";
+import { getAllProducts } from "../../Redux/productReducer/productActions";
 
 export const Navbar = () => {
+  const { isAuth, userDetails } = useSelector((state) => state.userReducer);
+  console.log(userDetails);
+
+  const dispatch = useDispatch();
+  console.log(isAuth);
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, []);
+
   return (
     <div>
       <nav
@@ -41,54 +59,67 @@ export const Navbar = () => {
             </form>
             <ul className="navbar-nav gap-3">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <Link to="/destinations" className="nav-item">
-                <p className="nav-link">
-                  Destinations
-                </p>
+                <p className="nav-link">Destinations</p>
               </Link>
 
               <Link to="/bookings" className="nav-item">
-                <p
-                  className="nav-link"
-                  tabIndex="-1"
-                  aria-disabled="true"
-                >
+                <p className="nav-link" tabIndex="-1" aria-disabled="true">
                   Bookings
                 </p>
               </Link>
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                 Login
-                </button>
-                <ul class="dropdown-menu">
-                  <li
-                    className="dropdown-item"
-                    onClick={() => {
-                      signInWithGooglePopup()
-                        .then((res) => console.log(res))
-                        .catch((res) => {
-                          alert("Something went wrong");
-                        });
-                    }}
+              <Link className="nav-item">
+                <p className="nav-link" tabIndex="-1">
+                  {isAuth && userDetails.displayName}
+                </p>
+              </Link>
+              {!isAuth ? (
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    Login With Google
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/auth">
-                      Login With Email
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    Login
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li
+                      className="dropdown-item"
+                      onClick={() => {
+                        signInWithGooglePopup()
+                          .then((user) => {
+                            console.log(user);
+                          })
+                          .catch((res) => {
+                            alert("Something went wrong");
+                          });
+                      }}
+                    >
+                      Login With Google
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/auth">
+                        Login With Email
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <button
+                  style={{ height: "2.5rem" }}
+                  className="btn"
+                  onClick={() => {
+                    dispatch(logoutUser());
+                  }}
+                >
+                  Logout
+                </button>
+              )}
             </ul>
           </div>
         </div>
