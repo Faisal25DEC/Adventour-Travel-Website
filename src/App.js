@@ -23,7 +23,7 @@ function App() {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
         await createUserDocumentFromAuth(user, { bookings: ["test"] });
-        const data = await getUserDocumentFromAuth(user);
+        const data = getUserDocumentFromAuth(user);
         data.then((res) => {
           console.log(res.data());
           dispatch(loginUser(res.data()));

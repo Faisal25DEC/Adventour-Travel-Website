@@ -76,7 +76,7 @@ export const Navbar = () => {
               </Link>
               <Link className="nav-item">
                 <p className="nav-link" tabIndex="-1">
-                  {isAuth && userDetails.displayName
+                  {isAuth && userDetails
                     ? userDetails.displayName
                     : ""}
                 </p>
