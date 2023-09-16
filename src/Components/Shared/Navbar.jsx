@@ -45,22 +45,21 @@ export const Navbar = () => {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/destinations">
+              <Link to="/destinations" className="nav-item">
+                <p className="nav-link">
                   Destinations
-                </a>
-              </li>
+                </p>
+              </Link>
 
-              <li className="nav-item">
-                <a
+              <Link to="/bookings" className="nav-item">
+                <p
                   className="nav-link"
-                  href="/about-us"
                   tabIndex="-1"
                   aria-disabled="true"
                 >
-                  About Us
-                </a>
-              </li>
+                  Bookings
+                </p>
+              </Link>
               <div class="dropdown">
                 <button
                   class="btn btn-secondary dropdown-toggle"
