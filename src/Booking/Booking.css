@@ -1,0 +1,312 @@
+body {
+    
+    background-color: rgb(16, 18, 20); /* Set the background color to black */
+    color: white; /* Set text color to white or a contrasting color */
+  }
+  
+.flex{
+    width: 50%;
+    margin-top: 30px;
+    margin-left: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    
+}
+.top{
+ 
+    margin-top: 60px;
+    margin-left: 110px;
+    color: #ddd;
+}
+.child1{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border: 1px solid grey;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 20px;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+.parent{
+    display: flex;
+    color: #ddd;
+}
+.child{
+    width: 60%;
+    margin-top: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.p_child{
+    width: 90%;
+    height: 80%;
+    border: 1px solid;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: -50px;
+    margin-bottom: 20px;
+    padding: 15px 10px;
+   
+}
+.travel{
+    width: 60%;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: #ddd;
+}
+.btn_flex{
+    display: flex;
+    justify-content: space-between;
+    color: #ddd;
+}
+.btn{
+    border-radius: 50%;
+    padding: 8px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    box-shadow: '0 2px 4px rgba(0, 0, 0, 0.1)';
+}
+/* PriceSummary.css */
+.price-summary {
+    flex: 1;
+    margin-left: 62%;
+    margin-right: 30px;
+    width: 30%;
+    margin-top: -60px;
+    background-color: rgb(16, 18, 20);
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+    color: #ddd;
+  }
+  
+  .price-summary h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  .price-summary div {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .price-summary .total {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+  }
+
+
+  /* form details css */
+
+.booking-form {
+    margin-top: -110px;
+    margin-bottom: 20px;
+    width: 60%;
+    background-color: rgb(16, 18, 20);
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    text-align: left;
+    color: #ddd;
+  }
+  
+  .booking-form h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .info-note {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgb(16, 18, 20);
+    margin-top: 25px;
+  }
+  
+  .info-note span {
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .lead-traveler {
+    font-weight: 700;
+    margin-left: 13px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .lead-traveler>span{
+    top: -25px;
+  }
+  .label1{
+    margin-left: -88px;
+  }
+  
+  .label {
+    
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+    background-color:rgb(16, 18, 20) ;
+    width: 90px;
+    padding-left: 6px;
+    position: relative;
+    /* top: -20px; */
+  }
+  .title>span{
+    margin-right: 15px;
+  }
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 80%;
+    border: 1px solid silver;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgb(16, 18, 20);
+  }
+  
+  input[type="tel"]::placeholder {
+    color: #888;
+  }
+  
+  .date-of-birth {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  
+  .dob-fields {
+    display: flex;
+  }
+  
+  select {
+    border: 1px solid silver;
+    margin-right: 10px;
+    width: 100px;
+  }
+  
+  .radio-group {
+    margin-top: 35px;
+  }
+  
+  .radio-group .label {
+    font-weight: 700;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .nationality label {
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+    background-color: rgb(16, 18, 20);
+    width: 90px;
+    padding-left: 6px;
+    position: relative;
+    top: -9px;
+  }
+  
+  .nationality select {
+    width: 45%;
+  }
+  
+  /* Add styles for options within selects here */
+
+  .nextBtn{
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: whitesmoke;
+    background-color: #153d81;
+  }
+
+
+  /* AdventureOverview.css */
+
+.container {
+  width: 60%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: #191b1d;
+  border-radius: 15px;
+}
+
+.title {
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.date-box {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  border-bottom: none;
+}
+
+.date-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.date-range {
+  font-size: 15px;
+}
+
+.change-date {
+  color: blue; /* Example color for the "Change date" link */
+}
+
+.info-box {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
+  border-top: none;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.icon {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.info {
+  padding-top: 5px;
+}
+
+  
+  
