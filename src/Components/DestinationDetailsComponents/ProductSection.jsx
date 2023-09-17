@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ProductStyles.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
@@ -10,10 +10,28 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { useDispatch, useSelector } from "react-redux";
+import { productReducer } from "./../../Redux/productReducer/productReducer";
+import { getSingleProduct } from "../../Redux/productReducer/productActions";
+import { useParams } from "react-router";
+import { duration } from "@mui/material";
+import { getPlaceImages } from "../../Utils/unplash/unplash";
 
 export const ProductSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [adultCount, setAdultCount] = useState(0)
+  const [currentProductImages, setCurrentProductImages] = useState([]);
+  const [adultCount, setAdultCount] = useState(0);
+  const { id } = useParams();
+  const { currentProduct } = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+  const getCurrentProductImages = async () => {
+    const placeImages = await getPlaceImages(currentProduct.name)();
+    setCurrentProductImages(placeImages);
+  };
+  useEffect(() => {
+    dispatch(getSingleProduct(id));
+    getCurrentProductImages();
+  }, []);
 
   return (
     <div style={{ marginTop: "8%" }}>
@@ -31,69 +49,16 @@ export const ProductSection = () => {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-2.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-3.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-4.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-5.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-6.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-7.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-8.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-9.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-10.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
+              {currentProductImages?.map((currentProductImage) => {
+                const {
+                  urls: { full, regular },
+                } = currentProductImage;
+                return (
+                  <SwiperSlide>
+                    <img className="img-fluid" src={regular} alt="" />
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -105,76 +70,16 @@ export const ProductSection = () => {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-1.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-2.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-3.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-4.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-5.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-6.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-7.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-8.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-9.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="img-fluid"
-                  src="https://swiperjs.com/demos/images/nature-10.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
+              {currentProductImages?.map((currentProductImage) => {
+                const {
+                  urls: { full, regular },
+                } = currentProductImage;
+                return (
+                  <SwiperSlide>
+                    <img className="img-fluid" src={regular} alt="" />
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </div>
           <div className="col-2"></div>
@@ -182,28 +87,21 @@ export const ProductSection = () => {
             <div className="details-card rounded grey-card p-4">
               <div className="row">
                 <div className="col-6">
-                  <h2>Place Name</h2>
+                  <h2>{currentProduct.name}</h2>
                 </div>
                 <div className="col-6">
                   <h4 style={{ color: "#0cc0df" }} className="mt-2 float-end">
-                    Andaman & Nicobar
+                    {currentProduct.state}
                   </h4>
                 </div>
               </div>
-              <p className="sub">
-                Neil Island is one of India’s Andaman Islands, in the Bay of
-                Bengal. Bharatpur Beach has coral reefs teeming with tropical
-                fish. Laxmanpur Beach is known for its sunset views. Howrah
-                Bridge is a natural rock formation accessible at low tide. Near
-                the island’s wharf is Neil Kendra village, with a curving, sandy
-                bay dotted with boats. Off the southeast coast, the tiny Sir
-                Hugh Rose Island is a sanctuary for turtles.
-              </p>
+              <p className="sub">{currentProduct.info}</p>
               <div className="d-flex justify-content-between">
                 <h4>
-                  ₹765/<span style={{ color: "#0cc0df" }}>day</span>
+                  ₹{Math.floor(currentProduct.price)}/
+                  <span style={{ color: "#0cc0df" }}>day</span>
                 </h4>
-                <h4>10 Days</h4>
+                <h4>{currentProduct.duration} Days</h4>
               </div>
 
               <div className="booking-dates d-flex justify-content-around mt-5">
@@ -219,11 +117,16 @@ export const ProductSection = () => {
                 <div className="persons ms-3">
                   <label htmlFor="">Adults</label>
                   <div className="d-flex gap-2">
-                    <p onClick={() => setAdultCount(adultCount+1)}>
+                    <p onClick={() => setAdultCount(adultCount + 1)}>
                       <i class="fa-solid fa-chevron-up"></i>
                     </p>
-                    <p style={{background: "#131313"}} className="rounded px-2 py-1">{adultCount}</p>
-                    <p onClick={() => setAdultCount(adultCount-1)}>
+                    <p
+                      style={{ background: "#131313" }}
+                      className="rounded px-2 py-1"
+                    >
+                      {adultCount}
+                    </p>
+                    <p onClick={() => setAdultCount(adultCount - 1)}>
                       <i class="fa-solid fa-chevron-down"></i>
                     </p>
                   </div>

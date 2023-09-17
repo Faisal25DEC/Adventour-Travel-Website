@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -39,7 +40,7 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, provider);
-export const db = getFirestore();
+export const db = getFirestore(firebaseApp);
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation
@@ -52,6 +53,7 @@ export const createUserDocumentFromAuth = async (
   const userSnapshot = await getDoc(userDocRef);
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
+    console.log("%ccreating user document", displayName, "color:green");
     const createdAt = new Date();
 
     try {
@@ -79,7 +81,26 @@ export const getUserDocumentFromAuth = async (user) => {
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
-  return await createUserWithEmailAndPassword(auth, email, password);
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    // // Update user profile
+    // await updateProfile(userCredential.user, {
+    //   displayName: userName,
+    //   photoURL: "https://example.com/jane-q-user/profile.jpg",
+    // });
+
+    // console.log("User profile updated successfully");
+
+    return userCredential;
+  } catch (error) {
+    console.error("Error creating user:", error);
+    throw error; // Rethrow the error to handle it at the calling code.
+  }
 };
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
@@ -101,4 +122,14 @@ export const updateBookings = async (user, bookedDestination) => {
   await updateDoc(destinationRef, {
     bookings: [...bookings, bookedDestination],
   });
+};
+export const updateUserDocumentFromAuth = async (user, newDisplayName) => {
+  console.log(newDisplayName);
+  const userRef = doc(db, "users", user.uid);
+  const userSnapshot = await getDoc(userRef);
+  await updateDoc(userRef, {
+    displayName: newDisplayName,
+  });
+  console.log("document updated");
+  console.log(userSnapshot);
 };

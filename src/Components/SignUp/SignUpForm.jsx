@@ -3,17 +3,20 @@ import {
   auth,
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
+  getUserDocumentFromAuth,
+  updateUserDocumentFromAuth,
 } from "../../Utils/firebase/firebase";
 import FormInput from "../FormInput/FormInput";
-import { Form } from "react-router-dom";
+import { Form, Navigate } from "react-router-dom";
 import "./SignUpForm.scss";
 import {
   initialLogin,
   initiateSignUp,
   loginUser,
 } from "../../Redux/userReducer/userActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import Button from "../button/button.component";
+import { userReducer } from "./../../Redux/userReducer/userReducer";
 
 const defaultFormFields = {
   displayName: "",
@@ -26,7 +29,7 @@ const SignUpForm = () => {
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const dispatch = useDispatch();
-
+  const { isAuth } = useSelector((state) => state.userReducer);
   const handleChange = (event) => {
     const { name, value } = event.target;
     steFormFields({
@@ -46,17 +49,26 @@ const SignUpForm = () => {
       return;
     }
     try {
-      const user = await createAuthUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
 
-      const userDoc = await createUserDocumentFromAuth(user.user, {
-        displayName,
+      await updateUserDocumentFromAuth(user, displayName);
+      const data = getUserDocumentFromAuth(user);
+      data.then((res) => {
+        console.log(res.data());
+        dispatch(loginUser({ ...res.data(), uid: user.uid }));
       });
-      dispatch(loginUser()); 
       resetFormFields();
+      console.log(user);
     } catch (err) {
       console.log(err);
     }
   };
+  // if (isAuth) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <div>

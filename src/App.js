@@ -22,11 +22,13 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
+        console.log(user);
+        console.log(user.displayName);
         await createUserDocumentFromAuth(user, { bookings: ["test"] });
         const data = getUserDocumentFromAuth(user);
         data.then((res) => {
           console.log(res.data());
-          dispatch(loginUser(res.data()));
+          dispatch(loginUser({ ...res.data(), uid: user.uid }));
         });
         console.log(user);
       }

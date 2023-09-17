@@ -2,6 +2,7 @@ import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
+  GET_SINGLE_PRODUCT,
   GET_STATE_PRODUCTS,
   SET_STATE_PRODUCTS_NULL,
 } from "./productTypes";
@@ -11,6 +12,7 @@ const initialState = {
   stateProducts: [],
   totalProducts: [],
   randomProducts: [],
+  currentProduct: {},
   isLoading: false,
   isError: false,
 };
@@ -51,6 +53,12 @@ export const productReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         stateProducts: [],
+      };
+    }
+    case GET_SINGLE_PRODUCT: {
+      return {
+        ...state,
+        currentProduct: { ...payload },
       };
     }
     default: {

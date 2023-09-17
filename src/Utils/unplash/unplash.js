@@ -5,11 +5,11 @@ export const getPlaceImages = (name) =>
   async function () {
     try {
       let apiResponse = await fetch(
-        `${unsplashApiUrl}&page=1&query=${name}&color=blue&orientation=squarish`
+        `${unsplashApiUrl}&page=1&query=${name}&orientation=squarish`
       );
       let placeImages = await apiResponse.json();
       console.log(placeImages);
-      return placeImages.results[0].urls.thumb;
+      return placeImages.results;
     } catch (err) {
       console.log(err);
     }

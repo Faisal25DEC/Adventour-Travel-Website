@@ -3,6 +3,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   INITIATE_SIGNUP,
+  UPDATE_USER_BOOKINGS,
 } from "./userTypes";
 
 const createAction = (type, payload) => {
@@ -23,6 +24,6 @@ export const initialLogin = () => {
   return createAction(INITIATE_LOGIN);
 };
 
-export const setCurrentUser = (user) => {
-  createAction();
+export const updateUser = (payload) => {
+  return createAction(UPDATE_USER_BOOKINGS, payload);
 };

@@ -5,6 +5,7 @@ import {
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
+  GET_SINGLE_PRODUCT,
   GET_STATE_PRODUCTS,
   SET_STATE_PRODUCTS_NULL,
 } from "./productTypes";
@@ -52,4 +53,12 @@ export const getStateProducts = (state) => async (dispatch) => {
 
 export const setStateProductsNull = () => {
   return createAction(SET_STATE_PRODUCTS_NULL);
+};
+
+export const getSingleProduct = (id) => async (dispatch) => {
+  const apiRes = axios
+    .get(`${baseUrl}/touristDestinations/${id}`)
+    .then((res) => {
+      dispatch(createAction(GET_SINGLE_PRODUCT, res.data));
+    });
 };

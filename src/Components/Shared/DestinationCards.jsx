@@ -4,22 +4,32 @@ import "./Shared.css";
 import location from "../../Assets/location.png";
 import star from "../../Assets/star.png";
 import durationIcon from "../../Assets/duration.png";
+import { useDispatch, useSelector } from "react-redux";
+import { userReducer } from "./../../Redux/userReducer/userReducer";
+import { updateBookings } from "../../Utils/firebase/firebase";
+import { updateUser } from "../../Redux/userReducer/userActions";
+import { useNavigate } from "react-router";
 
 export const DestinationCards = ({ onProduct, product }) => {
+  const { userDetails } = useSelector((state) => state.userReducer);
+  const navigate = useNavigate();
   const { images = "", name, duration, price, state, ratings } = product;
+  const dispatch = useDispatch();
   // console.log(images);
   const imageSource = images ? images : "";
   return (
     <div className="mb-5">
       <div className="card">
         <img src={imageSource} className="card-img-top card-img" alt="..." />
-        <span
-          style={{ background: "#0cc0df", color: "#1b1b1b" }}
-          class="position-absolute top-0 start-50 translate-middle badge rounded-pill"
-        >
-          {ratings}
-          <span class="visually-hidden">unread messages</span>
-        </span>
+        {onProduct && (
+          <span
+            style={{ background: "#0cc0df", color: "#1b1b1b" }}
+            class="position-absolute top-0 start-50 translate-middle badge rounded-pill"
+          >
+            {ratings}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        )}
         <div className="card-body">
           <h3 className="destination-card-title" style={{ color: "white" }}>
             {" "}
@@ -46,7 +56,14 @@ export const DestinationCards = ({ onProduct, product }) => {
               {price}/
               <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
             </h2>
-            <button className="btn">Book</button>
+            <button
+              className="btn"
+              onClick={() => {
+                navigate(`/destinations/${product.id}`);
+              }}
+            >
+              Book
+            </button>
           </div>
         </div>
       </div>
