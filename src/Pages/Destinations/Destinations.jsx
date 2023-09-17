@@ -50,14 +50,15 @@ const Destinations = () => {
     <div className="destinations-wrapper container">
       <DestinationBanner />
       <button
-        className="btn btn-primary"
+      style={{marginTop:"10%"}}
+        className="btn"
         onClick={() => {
           dispatch(setStateProductsNull());
           dispatch(getProducts(page));
           setSearchParams({});
         }}
       >
-        see All
+        See All
       </button>
       <div className="destination-cards-wrapper">
         {stateProducts.length

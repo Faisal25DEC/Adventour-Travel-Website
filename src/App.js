@@ -3,7 +3,7 @@ import Checkout from "./Pages/Checkout";
 import Payment from "./Pages/Payment";
 import AllRoutes from "./AllRoutes";
 import { Footer } from "./Components/Shared/Footer";
-import { Navbar } from "./Components/Shared/Navbar";
+import { NavbarShared } from "./Components/Shared/Navbar";
 import { Home } from "./Pages/Home";
 import { useEffect } from "react";
 import {
@@ -36,7 +36,7 @@ function App() {
   }, [dispatch]);
   return (
     <div>
-      <Navbar />
+      <NavbarShared />
       <AllRoutes />
       <Footer />
     </div>

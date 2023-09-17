@@ -15,6 +15,10 @@ a:hover {
   color: #131313;
 }
 
+.active-link {
+  border-bottom: 2px solid #0cc0df;
+}
+
 .search-box {
   background: #1b1b1b;
   outline: none;

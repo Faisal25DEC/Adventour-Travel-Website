@@ -98,67 +98,94 @@ const DestinationBanner = () => {
                 }}
               >
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-2.jpg"
-                    alt=""
-                  />
+                  <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-3.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-4.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-5.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-6.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-7.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-8.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-9.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img
-                    className="img-fluid banner-swiper"
-                    src="https://swiperjs.com/demos/images/nature-10.jpg"
-                    alt=""
-                  />
+                <div className="img-contain">
+                    <img
+                      className="img-fluid banner-swiper"
+                      src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      alt=""
+                    />
+                    <p className="position-absolute bottom-0 text-center img-text p-2 mb-0" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, molestiae. Consequuntur sapiente quam fugit corporis animi atque, dicta itaque eius temporibus tempore sint neque? Iure amet reiciendis fuga corporis quos!</p>
+                  </div>
                 </SwiperSlide>
               </Swiper>
             </div>

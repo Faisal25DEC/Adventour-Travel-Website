@@ -9,3 +9,8 @@
   border-radius: 25px;
   opacity: 0.8;
 }
+
+.img-text {
+  background-color: #1b1b1bbb;
+  font-size: 12px;
+}
