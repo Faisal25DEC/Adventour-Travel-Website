@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect , useState } from "react";
 import logo from "../../Assets/icons/adventour.png";
 import "../Shared/Shared.css";
-import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
+import {
+  createUserDocumentFromAuth,
+  getUserDocumentFromAuth,
+  signInWithGooglePopup,
+  signOutUser,
+} from "../../Utils/firebase/firebase";
 import { Link, useLocation } from "react-router-dom";
+import { userReducer } from "./../../Redux/userReducer/userReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, logoutUser } from "../../Redux/userReducer/userActions";
+import { getAllProducts } from "../../Redux/productReducer/productActions";
+import { signOut } from "firebase/auth";
 
 export const NavbarShared = () => { 
   const [activeLink, setActiveLink] = useState("");
@@ -11,6 +21,16 @@ export const NavbarShared = () => {
   const isLinkActive = (path) => {
     return location.pathname === path;
   };
+
+  const { isAuth, userDetails } = useSelector((state) => state.userReducer);
+  console.log(userDetails);
+
+  const dispatch = useDispatch();
+  console.log(isAuth);
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, []);
 
   return (
     <div>
@@ -68,35 +88,57 @@ export const NavbarShared = () => {
                   Bookings
                 </p>
               </Link>
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                 Login
-                </button>
-                <ul class="dropdown-menu">
-                  <li
-                    className="dropdown-item"
-                    onClick={() => {
-                      signInWithGooglePopup()
-                        .then((res) => console.log(res))
-                        .catch((res) => {
-                          alert("Something went wrong");
-                        });
-                    }}
+              <Link className="nav-item">
+                <p className="nav-link" tabIndex="-1">
+                  {isAuth && userDetails
+                    ? userDetails.displayName
+                    : ""}
+                </p>
+              </Link>
+              {!isAuth ? (
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    Login With Google
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/auth">
-                      Login With Email
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    Login
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li
+                      className="dropdown-item"
+                      onClick={() => {
+                        signInWithGooglePopup()
+                          .then((user) => {
+                            console.log(user);
+                          })
+                          .catch((res) => {
+                            alert("Something went wrong");
+                          });
+                      }}
+                    >
+                      Login With Google
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/auth">
+                        Login With Email
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <button
+                  style={{ height: "2.5rem" }}
+                  className="btn"
+                  onClick={async () => {
+                    await signOutUser();
+                    dispatch(logoutUser());
+                  }}
+                >
+                  Logout
+                </button>
+              )}
             </ul>
           </div>
         </div>

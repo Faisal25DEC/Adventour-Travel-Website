@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  GET_ALL_PRODUCTS,
   GET_PRODUCT_FAILURE,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
@@ -13,6 +14,12 @@ const createAction = (type, payload) => {
 };
 
 const baseUrl = `http://localhost:8080`;
+
+export const getAllProducts = () => async (dispatch) => {
+  const apiRes = axios
+    .get(`${baseUrl}/touristDestinations`)
+    .then((res) => dispatch(createAction(GET_ALL_PRODUCTS, res.data)));
+};
 
 export const getProducts = (page) => async (dispatch) => {
   dispatch(createAction(GET_PRODUCT_REQUEST));

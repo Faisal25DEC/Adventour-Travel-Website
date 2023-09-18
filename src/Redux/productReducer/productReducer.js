@@ -1,4 +1,5 @@
 import {
+  GET_ALL_PRODUCTS,
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
   GET_STATE_PRODUCTS,
@@ -16,6 +17,12 @@ const initialState = {
 
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_ALL_PRODUCTS: {
+      return {
+        ...state,
+        totalProducts: [...payload],
+      };
+    }
     case GET_PRODUCT_SUCCESS: {
       return {
         ...state,

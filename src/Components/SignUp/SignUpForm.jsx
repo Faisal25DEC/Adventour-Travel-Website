@@ -10,6 +10,7 @@ import "./SignUpForm.scss";
 import {
   initialLogin,
   initiateSignUp,
+  loginUser,
 } from "../../Redux/userReducer/userActions";
 import { useDispatch } from "react-redux";
 // import Button from "../button/button.component";
@@ -50,6 +51,7 @@ const SignUpForm = () => {
       const userDoc = await createUserDocumentFromAuth(user.user, {
         displayName,
       });
+      dispatch(loginUser()); 
       resetFormFields();
     } catch (err) {
       console.log(err);

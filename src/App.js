@@ -20,15 +20,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
+    const unsubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
-        createUserDocumentFromAuth(user, { bookings: ["test"] });
+        await createUserDocumentFromAuth(user, { bookings: ["test"] });
         const data = getUserDocumentFromAuth(user);
         data.then((res) => {
           console.log(res.data());
+          dispatch(loginUser(res.data()));
         });
         console.log(user);
-        dispatch(loginUser(user));
       }
     });
 
