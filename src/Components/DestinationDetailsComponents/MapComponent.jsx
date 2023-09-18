@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export const MapComponent = () => {
   const { currentProduct } = useSelector((store) => store.productReducer);
-
+  console.log(currentProduct.location);
   return (
     <div className="container" style={{ marginTop: "10%" }}>
       <div style={{ height: "100vh", width: "100%" }}>
@@ -13,11 +13,13 @@ export const MapComponent = () => {
           <iframe
             class="gmap_iframe"
             width="100%"
+            height="700"
             frameborder="0"
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src={`${currentProduct.location}`}
+            mapType="sattelite"
+            src={`https://www.google.com/maps/embed/v1/search?q=${currentProduct.name}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
           ></iframe>
         </div>
       </div>

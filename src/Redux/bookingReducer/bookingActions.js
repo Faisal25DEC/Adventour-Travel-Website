@@ -1,4 +1,9 @@
-import { SET_DATE_DETAILS, SET_GUESTS, SET_PRICE } from "./bookingTypes";
+import {
+  SET_BOOKING_DETAILS,
+  SET_DATE_DETAILS,
+  SET_GUESTS,
+  SET_PRICE,
+} from "./bookingTypes";
 
 const createAction = (type, payload) => {
   return { type, payload };
@@ -13,4 +18,8 @@ export const setPrice = (payload) => {
 };
 export const setDateDetails = (payload) => {
   return createAction(SET_DATE_DETAILS, payload);
+};
+
+export const setBookingDetails = (payload) => {
+  return createAction(SET_BOOKING_DETAILS, payload);
 };

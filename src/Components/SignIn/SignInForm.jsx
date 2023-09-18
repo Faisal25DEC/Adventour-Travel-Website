@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   auth,
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./../../Redux/userReducer/userReducer";
 import { initiateSignUp } from "../../Redux/userReducer/userActions";
 import { Navigate, useLocation } from "react-router";
+import { bookingReducer } from "./../../Redux/bookingReducer/bookingReducer";
 
 const defaultFormFields = {
   email: "",
@@ -22,21 +23,22 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
-  const {isAuth} = useSelector((state) => state.userReducer)
+  const bookingDetails = useSelector((state) => state.bookingReducer);
+  const { isAuth } = useSelector((state) => state.userReducer);
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const { signUp } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const location = useLocation();
 
+  console.log(bookingDetails);
+
   const signInWithGoole = async () => {
     try {
       const { user } = await signInWithGooglePopup();
 
       const userDocRef = await createUserDocumentFromAuth(user, {
-        cartArray: ["a"],
-        bookingsArray: ["b"],
-        wishlist: ["s"],
+        bookings: [{ id: "adventour@test" }],
       });
     } catch (err) {
       console.log(err);
@@ -78,15 +80,33 @@ const SignInForm = () => {
     }
   };
 
-  if(isAuth){
-    if(location.state && location.state.from ==='bookings'){
-      return <Navigate to='/bookings'/>
+  useEffect(() => {
+    if (location.state && location.state.from === "checkout") {
+      if (bookingDetails.price != "0") {
+        localStorage.setItem(
+          "bookingDetailsFromCheckout",
+          JSON.stringify(bookingDetails)
+        );
+      }
     }
-    else if(location.state.from === 'checkout'){
-      return <Navigate to='/checkout'/>
+  }, []);
+
+  if (isAuth) {
+    if (location.state && location.state.from === "bookings") {
+      return <Navigate to="/bookings" />;
+    } else if (location.state && location.state.from === "checkout") {
+      return (
+        <Navigate
+          to="/checkout"
+          state={{
+            from: "signIn",
+          }}
+        />
+      );
     }
-    return <Navigate to='/'/>
+    return <Navigate to="/" />;
   }
+
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>

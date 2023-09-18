@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   GET_ALL_PRODUCTS,
+  GET_CURRENT_PRODUCT_STATE_DETAILS,
   GET_PRODUCT_FAILURE,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
@@ -14,7 +15,7 @@ const createAction = (type, payload) => {
   return { type, payload };
 };
 
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://jittery-puce-spider.cyclic.cloud`;
 
 export const getAllProducts = () => async (dispatch) => {
   const apiRes = axios
@@ -61,4 +62,10 @@ export const getSingleProduct = (id) => async (dispatch) => {
     .then((res) => {
       dispatch(createAction(GET_SINGLE_PRODUCT, res.data));
     });
+};
+
+export const getCurrentProductStateDetails = (state) => async (dispatch) => {
+  const apiRes = axios.get(`${baseUrl}/state?name=${state}`).then((res) => {
+    dispatch(createAction(GET_CURRENT_PRODUCT_STATE_DETAILS, res.data));
+  });
 };

@@ -1,4 +1,9 @@
-import { SET_DATE_DETAILS, SET_GUESTS, SET_PRICE } from "./bookingTypes";
+import {
+  SET_BOOKING_DETAILS,
+  SET_DATE_DETAILS,
+  SET_GUESTS,
+  SET_PRICE,
+} from "./bookingTypes";
 
 const initialState = {
   guests: 0,
@@ -28,6 +33,12 @@ export const bookingReducer = (state, { type, payload }) => {
         from: payload.fromDate,
         to: payload.lastDate,
         bookedTill: payload.bookedTill,
+      };
+    }
+    case SET_BOOKING_DETAILS: {
+      return {
+        ...state,
+        ...payload,
       };
     }
     default: {

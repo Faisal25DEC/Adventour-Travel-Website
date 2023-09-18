@@ -1,5 +1,6 @@
 import {
   GET_ALL_PRODUCTS,
+  GET_CURRENT_PRODUCT_STATE_DETAILS,
   GET_PRODUCT_SUCCESS,
   GET_RANDOM_PRODUCTS,
   GET_SINGLE_PRODUCT,
@@ -12,7 +13,9 @@ const initialState = {
   stateProducts: [],
   totalProducts: [],
   randomProducts: [],
+
   currentProduct: {},
+  currentProductStateDetails: {},
   isLoading: false,
   isError: false,
 };
@@ -59,6 +62,12 @@ export const productReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         currentProduct: { ...payload },
+      };
+    }
+    case GET_CURRENT_PRODUCT_STATE_DETAILS: {
+      return {
+        ...state,
+        currentProductStateDetails: { ...payload },
       };
     }
     default: {

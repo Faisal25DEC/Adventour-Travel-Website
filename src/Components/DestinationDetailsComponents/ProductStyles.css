@@ -4,12 +4,12 @@
 }
 
 .date-select {
-    background-color: #131313;
-    color: white;
-    border: 0;
-    height: 30px;
-    padding: 2%;
-    border-bottom: 1px solid #131313;
+  background-color: #131313;
+  color: white;
+  border: 0;
+  height: 30px;
+  padding: 2%;
+  border-bottom: 1px solid #131313;
 }
 
 .accordion-button {
@@ -36,6 +36,10 @@
   padding: 2%;
   opacity: 0.8;
   background-color: #1b1b1b;
+  width: 120%;
+}
+.mySwiper2 {
+  width: 120%;
 }
 
 .persons {
@@ -45,5 +49,17 @@
 gmp-map {
   height: 100%;
 }
-
+@media screen and (max-width: 850px) {
+  .mySwiper {
+    width: 100%;
+    margin: auto;
+  }
+  .mySwiper2 {
+    width: 90%;
+    margin: auto;
+  }
+  .mySwiper2 img {
+    height: 30rem;
+  }
+}
 /* Optional: Makes the sample page fill the window. */

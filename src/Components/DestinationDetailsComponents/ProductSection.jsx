@@ -12,7 +12,10 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useDispatch, useSelector } from "react-redux";
 import { productReducer } from "./../../Redux/productReducer/productReducer";
-import { getSingleProduct } from "../../Redux/productReducer/productActions";
+import {
+  getCurrentProductStateDetails,
+  getSingleProduct,
+} from "../../Redux/productReducer/productActions";
 import { useParams } from "react-router";
 
 import { bookingReducer } from "../../Redux/bookingReducer/bookingReducer";
@@ -34,7 +37,10 @@ export const ProductSection = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [currentProductImages, setCurrentProductImages] = useState([]);
   const { id } = useParams();
-  const { currentProduct } = useSelector((state) => state.productReducer);
+  const { currentProduct, currentProductStateDetails } = useSelector(
+    (state) => state.productReducer
+  );
+  console.log(currentProductStateDetails);
   const dispatch = useDispatch();
 
   const getPlaceImages = async (name) => {
@@ -55,12 +61,14 @@ export const ProductSection = () => {
   // };
   useEffect(() => {
     getPlaceImages(currentProduct.name);
+    dispatch(getCurrentProductStateDetails(currentProduct.state));
     return function cleanup() {
       setCurrentProductImages(null);
     };
-  }, [currentProduct.name]);
+  }, [currentProduct]);
   useEffect(() => {
     dispatch(getSingleProduct(id));
+
     setRender(!render);
   }, []);
   // useEffect(() => {
@@ -107,13 +115,26 @@ export const ProductSection = () => {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
+              <SwiperSlide>
+                <img
+                  className="img-fluid"
+                  src={currentProduct.images}
+                  style={{ width: "100%", height: "30rem" }}
+                  alt=""
+                />
+              </SwiperSlide>
               {currentProductImages?.map((currentProductImage) => {
                 const {
-                  urls: { full, regular },
+                  urls: { full },
                 } = currentProductImage;
                 return (
                   <SwiperSlide>
-                    <img className="img-fluid" src={regular} alt="" />
+                    <img
+                      className="img-fluid"
+                      src={full}
+                      style={{ width: "100%", height: "30rem" }}
+                      alt=""
+                    />
                   </SwiperSlide>
                 );
               })}
@@ -128,13 +149,26 @@ export const ProductSection = () => {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
+              <SwiperSlide>
+                <img
+                  className="img-fluid"
+                  src={currentProduct.images}
+                  style={{ width: "6rem", height: "5rem" }}
+                  alt=""
+                />
+              </SwiperSlide>
               {currentProductImages?.map((currentProductImage) => {
                 const {
-                  urls: { full, regular },
+                  urls: { full },
                 } = currentProductImage;
                 return (
                   <SwiperSlide>
-                    <img className="img-fluid" src={regular} alt="" />
+                    <img
+                      className="img-fluid"
+                      src={full}
+                      style={{ width: "6rem", height: "5rem" }}
+                      alt=""
+                    />
                   </SwiperSlide>
                 );
               })}
@@ -171,6 +205,7 @@ export const ProductSection = () => {
                     className="form-control date-select"
                     name=""
                     id=""
+                    min={new Date().toISOString().split("T")[0]}
                   />
                 </div>
                 <div className="persons ms-3">
@@ -211,40 +246,22 @@ export const ProductSection = () => {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>History</Accordion.Header>
                   <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].history}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>Climate</Accordion.Header>
                   <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].climate}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Best Time To Visit</Accordion.Header>
                   <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].about}
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
