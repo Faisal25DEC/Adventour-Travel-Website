@@ -13,7 +13,7 @@ export const BookingsSection = () => {
     <div className="container mt-5">
       <h1 className="heading">Bookings</h1>
       <div className="filters">
-      <ul className="nav nav-tabs">
+      <ul className="nav nav-tabs border-0">
         <li className="nav-item">
           <p
             className={`nav-link ${activeTab === 'upcoming' ? 'active' : ''}`}

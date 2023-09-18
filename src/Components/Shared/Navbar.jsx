@@ -69,19 +69,19 @@ export const NavbarShared = () => {
             </form>
             <ul className="navbar-nav gap-3">
               <Link to="/" className={`nav-brand me-2 ${isLinkActive("/") ? "active-link" : ""}`} onClick={() => setActiveLink("home")}>
-                <p className="nav-link " aria-current="page" aria-disabled="false" tabIndex="-1">
+                <p className="nav-link p-0 mt-2 " aria-current="page" aria-disabled="false" tabIndex="-1">
                   Home
                 </p>
               </Link>
               <Link to="/destinations"  className={`nav-item ${isLinkActive("/destinations") ? "active-link" : ""}`} onClick={() => setActiveLink("destinations")}>
-                <p className="nav-link" aria-disabled="true" tabIndex="-1">
+                <p className="nav-link p-0 mt-2" aria-disabled="true" tabIndex="-1">
                   Destinations
                 </p>
               </Link>
 
               <Link to="/bookings" className={`nav-item ${isLinkActive("/bookings") ? "active-link" : ""}`} onClick={() => setActiveLink("bookings")}>
                 <p
-                  className="nav-link"
+                  className="nav-link p-0 mt-2"
                   tabIndex="-1"
                   aria-disabled="true"
                 >
@@ -89,7 +89,7 @@ export const NavbarShared = () => {
                 </p>
               </Link>
               <Link className="nav-item">
-                <p className="nav-link" tabIndex="-1">
+                <p className="nav-link p-0 mt-2" tabIndex="-1">
                   {isAuth && userDetails
                     ? userDetails.displayName
                     : ""}

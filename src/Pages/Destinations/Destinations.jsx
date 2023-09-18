@@ -8,6 +8,7 @@ import {
   getStateProducts,
   setStateProductsNull,
 } from "../../Redux/productReducer/productActions";
+import Fade from 'react-reveal/Fade';
 import { signInWithGooglePopup } from "../../Utils/firebase/firebase";
 import DestinationCard from "../../Components/DestinationCard/DestinationCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -48,7 +49,9 @@ const Destinations = () => {
   console.log(productsPerPage);
   return (
     <div className="destinations-wrapper container">
+      <Fade left>
       <DestinationBanner />
+      </Fade>
       <button
       style={{marginTop:"10%"}}
         className="btn"

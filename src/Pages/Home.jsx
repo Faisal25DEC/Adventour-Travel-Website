@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import HomeBanner from "../Components/HomeComponents/HomeBanner";
 import { TopDestinations } from "../Components/HomeComponents/TopDestinations";
 import { HolidayEasily } from "../Components/HomeComponents/HolidayEasily";
@@ -8,11 +9,21 @@ import { Testimonials } from "../Components/HomeComponents/Testimonials";
 export const Home = () => {
   return (
     <div>
-      <HomeBanner />
-      <TopDestinations />
-      <HolidayEasily />
-      <OurExperiences />
-      <Testimonials />
+      <Fade up>
+        <HomeBanner />
+      </Fade>
+      <Fade right>
+        <TopDestinations />
+      </Fade>
+      <Fade up>
+        <HolidayEasily />
+      </Fade>
+      <Fade up>
+        <OurExperiences />
+      </Fade>
+      <Fade down>
+        <Testimonials />
+      </Fade>
     </div>
   );
 };
