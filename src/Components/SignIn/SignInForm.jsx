@@ -14,6 +14,7 @@ import "./SignInForm.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./../../Redux/userReducer/userReducer";
 import { initiateSignUp } from "../../Redux/userReducer/userActions";
+import { Navigate, useLocation } from "react-router";
 
 const defaultFormFields = {
   email: "",
@@ -21,10 +22,12 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const {isAuth} = useSelector((state) => state.userReducer)
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const { signUp } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const signInWithGoole = async () => {
     try {
@@ -75,6 +78,12 @@ const SignInForm = () => {
     }
   };
 
+  if(isAuth){
+    if(location.state && location.state.from ==='bookings'){
+      return <Navigate to='/bookings'/>
+    }
+    return <Navigate to='/'/>
+  }
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>

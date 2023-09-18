@@ -8,8 +8,8 @@ import Fade from 'react-reveal/Fade';
 
 export const Booking = () => {
   const { isAuth } = useSelector((state) => state.userReducer);
-  if (isAuth == false) {
-    return <Navigate to="/auth" />;
+  if (isAuth === false) {
+    return <Navigate to="/auth" state={{from:"bookings"}}/>;
   }
   return (
     <div>
