@@ -1,3 +1,5 @@
+import './Pagination.css'
+
 export const PaginationComp = ({ pageCount, pageIndex, setPageIndex }) => {
   let pagination = [];
 
@@ -103,5 +105,5 @@ export const PaginationComp = ({ pageCount, pageIndex, setPageIndex }) => {
     );
   });
 
-  return <ul className="pagination">{pagination}</ul>;
+  return <ul className="pagination justify-content-center">{pagination}</ul>;
 };
