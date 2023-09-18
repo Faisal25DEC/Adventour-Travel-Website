@@ -7,17 +7,6 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import { store } from './Redux/store';
 import { BrowserRouter } from 'react-router-dom';
-// Default theme
-import '@splidejs/splide/css';
-
-
-// or other themes
-import '@splidejs/splide/css/skyblue';
-import '@splidejs/splide/css/sea-green';
-
-
-// or only core styles
-import '@splidejs/splide/css/core';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

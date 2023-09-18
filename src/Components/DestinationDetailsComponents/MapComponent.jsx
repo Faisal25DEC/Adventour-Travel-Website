@@ -1,5 +1,4 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
 import styles from "../../Assets/MapStyles.json";
 import { useSelector } from "react-redux";
 

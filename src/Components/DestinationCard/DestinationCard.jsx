@@ -2,7 +2,6 @@ import React from "react";
 import "./DestinationCard.css";
 import duration from "../../Assets/duration.png";
 import star from "../../Assets/star.png";
-import Pagination from "@mui/material/Pagination";
 const DestinationCard = () => {
   return (
     <div>
