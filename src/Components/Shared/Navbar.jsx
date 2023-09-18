@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import logo from "../../Assets/icons/adventour.png";
 import "../Shared/Shared.css";
 import {
@@ -7,14 +7,21 @@ import {
   signInWithGooglePopup,
   signOutUser,
 } from "../../Utils/firebase/firebase";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { userReducer } from "./../../Redux/userReducer/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../Redux/userReducer/userActions";
 import { getAllProducts } from "../../Redux/productReducer/productActions";
 import { signOut } from "firebase/auth";
 
-export const Navbar = () => {
+export const NavbarShared = () => { 
+  const [activeLink, setActiveLink] = useState("");
+  const location = useLocation();
+
+  const isLinkActive = (path) => {
+    return location.pathname === path;
+  };
+
   const { isAuth, userDetails } = useSelector((state) => state.userReducer);
   console.log(userDetails);
 
@@ -27,12 +34,13 @@ export const Navbar = () => {
 
   return (
     <div>
+      
       <nav
         style={{ background: "#131313" }}
         className="navbar fixed-top navbar-expand-lg navbar-dark "
       >
         <div className="container">
-          <Link to="/" className="nav-brand me-2">
+          <Link to="/" >
             <img src={logo} alt="" className="img-fluid me-2" width={50} />
             Adventour.
           </Link>
@@ -53,29 +61,35 @@ export const Navbar = () => {
           >
             <form className="">
               <input
-                className="form-control search-box"
+                className="form-control search-box ms-lg-4 ms-sm-0 mt-sm-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
             </form>
             <ul className="navbar-nav gap-3">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+              <Link to="/" className={`nav-brand me-2 ${isLinkActive("/") ? "active-link" : ""}`} onClick={() => setActiveLink("home")}>
+                <p className="nav-link p-0 mt-2 " aria-current="page" aria-disabled="false" tabIndex="-1">
                   Home
-                </Link>
-              </li>
-              <Link to="/destinations" className="nav-item">
-                <p className="nav-link">Destinations</p>
+                </p>
+              </Link>
+              <Link to="/destinations"  className={`nav-item ${isLinkActive("/destinations") ? "active-link" : ""}`} onClick={() => setActiveLink("destinations")}>
+                <p className="nav-link p-0 mt-2" aria-disabled="true" tabIndex="-1">
+                  Destinations
+                </p>
               </Link>
 
-              <Link to="/bookings" className="nav-item">
-                <p className="nav-link" tabIndex="-1" aria-disabled="true">
+              <Link to="/bookings" className={`nav-item ${isLinkActive("/bookings") ? "active-link" : ""}`} onClick={() => setActiveLink("bookings")}>
+                <p
+                  className="nav-link p-0 mt-2"
+                  tabIndex="-1"
+                  aria-disabled="true"
+                >
                   Bookings
                 </p>
               </Link>
               <Link className="nav-item">
-                <p className="nav-link" tabIndex="-1">
+                <p className="nav-link p-0 mt-2" tabIndex="-1">
                   {isAuth && userDetails
                     ? userDetails.displayName
                     : ""}

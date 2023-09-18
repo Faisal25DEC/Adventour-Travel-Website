@@ -25,7 +25,7 @@ export const TopDestinations = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container" style={{marginTop: "10%"}}>
       <div className="comp-heading">
         <div className="row">
           <div className="col-6">

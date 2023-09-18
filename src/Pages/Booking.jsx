@@ -4,6 +4,7 @@ import { BookingsSection } from "../Components/BookingsComponents/BookingsSectio
 import { useSelector } from "react-redux";
 import { userReducer } from "./../Redux/userReducer/userReducer";
 import { Navigate } from "react-router";
+import Fade from 'react-reveal/Fade';
 
 export const Booking = () => {
   const { isAuth } = useSelector((state) => state.userReducer);
@@ -12,8 +13,12 @@ export const Booking = () => {
   }
   return (
     <div>
-      <BookingBanner />
-      <BookingsSection />
+        <Fade right>
+        <BookingBanner/>
+        </Fade>
+        <Fade left>
+        <BookingsSection/>
+        </Fade>
     </div>
   );
 };

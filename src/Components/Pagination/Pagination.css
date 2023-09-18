@@ -52,3 +52,16 @@
   color: #fff;
   background: var(--base-color);
 }
+
+.page-link {
+  background-color: #1b1b1b !important;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  cursor: pointer;
+  border: 0;
+}
+
+.active > a > .page-link {
+  background-color: #0cc0df !important;
+}

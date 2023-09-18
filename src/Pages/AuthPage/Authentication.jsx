@@ -10,6 +10,7 @@ import imageSignUp from "../../Assets/sign-up-image.png";
 import { useSelector } from "react-redux";
 // import Button from "../../Components/button/button.component";
 import { userReducer } from "./../../Redux/userReducer/userReducer";
+import { Fade } from "react-reveal";
 
 const Authentication = () => {
   const { signUp } = useSelector((state) => state.userReducer);
@@ -23,7 +24,9 @@ const Authentication = () => {
           <h1 className="heading">
             Let's Go On A<span style={{ color: "#0CC0DF" }}> Journey</span>🚀
           </h1>
+          <Fade up>
           {!signUp ? <SignInForm /> : <SignUpForm />}
+          </Fade>
         </div>
         <div className="col-2"></div>
         <div className="col-lg-5 d-none d-md-block d-lg-block banner-img">
