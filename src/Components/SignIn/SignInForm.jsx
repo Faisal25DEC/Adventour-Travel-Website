@@ -82,6 +82,9 @@ const SignInForm = () => {
     if(location.state && location.state.from ==='bookings'){
       return <Navigate to='/bookings'/>
     }
+    else if(location.state.from === 'checkout'){
+      return <Navigate to='/checkout'/>
+    }
     return <Navigate to='/'/>
   }
   return (

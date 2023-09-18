@@ -52,7 +52,7 @@ const Destinations = () => {
       <Fade left>
       <DestinationBanner />
       </Fade>
-      <button
+      {stateProducts.length?  <button
       style={{marginTop:"10%"}}
         className="btn"
         onClick={() => {
@@ -62,7 +62,7 @@ const Destinations = () => {
         }}
       >
         See All
-      </button>
+      </button> : ""}
 
       <div className="destination-cards-wrapper">
         {stateProducts.length
@@ -81,7 +81,7 @@ const Destinations = () => {
               );
             })}
       </div>
-      <PaginationComp pageCount={10} pageIndex={page} setPageIndex={setPage} />
+      <PaginationComp pageCount={9} pageIndex={page} setPageIndex={setPage} />
     </div>
   );
 };

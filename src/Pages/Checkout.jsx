@@ -129,13 +129,16 @@
 // }
 
 // export default Checkout
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import Stepper from '../Components/Stepper';
 import './Checkout.css'; // Import your CSS file for styling
 import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
 
 const Checkout = () => {
+  const {isAuth} = useSelector((store) => store.userReducer);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -160,6 +163,10 @@ const Checkout = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  if (!isAuth) {
+    return <Navigate to="/auth" state={{ from: "checkout" }} />;
+  }
 
   return (<div style={{marginTop: "8%"}}>
       <Stepper currentStep={1} />

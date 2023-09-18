@@ -12,6 +12,22 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { bookingReducer } from "./../../Redux/bookingReducer/bookingReducer";
 
+
+const monthMap = {
+  1: 'Jan',
+  2: 'Feb',
+  3: 'Mar',
+  4: 'Apr',
+  5: 'May',
+  6: 'Jun',
+  7: 'Jul',
+  8: 'Aug',
+  9: 'Sep',
+  10: 'Oct',
+  11: 'Nov',
+  12: 'Dec',
+};
+
 export const DestinationCards = ({ onProduct, product, onBookings }) => {
   const { userDetails } = useSelector((state) => state.userReducer);
 
@@ -61,17 +77,17 @@ export const DestinationCards = ({ onProduct, product, onBookings }) => {
             <div className="date">
               <div>
                 {" "}
-                <span className="from">From : </span> {product.from}
+                <span className="from">From : </span> {product.from.substring(8)}th {monthMap[+product.from.substring(5,7)]} {product.from.substring(0,4)}
               </div>{" "}
               <div>
-                <span className="to"> To : </span> {product.to}
+                <span className="to"> To : </span> {product.to.substring(8)}th {monthMap[+product.to.substring(5,7)]} {product.to.substring(0,4)}
               </div>
             </div>
           )}
           <div className="d-flex justify-content-between">
             <h2 style={{ color: "white" }}>
               <span style={{ color: "#0cc0df" }}>$</span>
-              {price}/
+              {Math.floor(price)}/
               <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
             </h2>
             <Link to={`/destinations/${product.id}`}>

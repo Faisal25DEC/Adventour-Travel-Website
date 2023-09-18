@@ -9,13 +9,15 @@ export const UpcomingSection = () => {
   return (
     <div className="container upcoming-bookings-container">
       {userDetails.bookings?.map((product) => {
-        return (
-          <DestinationCards
-            onProduct={false}
-            product={product}
-            onBookings={true}
-          />
-        );
+        if (product.id !== "adventour@test") {
+          return (
+            <DestinationCards
+              onProduct={false}
+              product={product}
+              onBookings={true}
+            />
+          );
+        }
       })}
     </div>
   );
