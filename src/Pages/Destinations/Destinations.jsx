@@ -59,6 +59,7 @@ const Destinations = () => {
       >
         see All
       </button>
+
       <div className="destination-cards-wrapper">
         {stateProducts.length
           ? stateProducts.map((product) => {
@@ -76,11 +77,7 @@ const Destinations = () => {
               );
             })}
       </div>
-      <PaginationComp
-        pageCount={10}
-        pageIndex={pageIndex}
-        setPageIndex={setPageIndex}
-      />
+      <PaginationComp pageCount={10} pageIndex={page} setPageIndex={setPage} />
     </div>
   );
 };

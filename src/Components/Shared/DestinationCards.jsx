@@ -9,9 +9,12 @@ import { userReducer } from "./../../Redux/userReducer/userReducer";
 import { updateBookings } from "../../Utils/firebase/firebase";
 import { updateUser } from "../../Redux/userReducer/userActions";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { bookingReducer } from "./../../Redux/bookingReducer/bookingReducer";
 
-export const DestinationCards = ({ onProduct, product }) => {
+export const DestinationCards = ({ onProduct, product, onBookings }) => {
   const { userDetails } = useSelector((state) => state.userReducer);
+
   const navigate = useNavigate();
   const { images = "", name, duration, price, state, ratings } = product;
   const dispatch = useDispatch();
@@ -39,7 +42,7 @@ export const DestinationCards = ({ onProduct, product }) => {
           <p style={{ color: "#6c9999" }} className="card-text">
             {state}, India
           </p>
-          {/* {onProduct && (
+          {onProduct && (
             <div className="duration-rating-wrapper">
               <div className="rating">
                 <div className="rating-icon">
@@ -49,21 +52,31 @@ export const DestinationCards = ({ onProduct, product }) => {
                 <p>Star</p>
               </div>
             </div>
-          )} */}
+          )}
+
+          {onBookings && (
+            <div className="guests">Guests : {product.guests}</div>
+          )}
+          {onBookings && (
+            <div className="date">
+              <div>
+                {" "}
+                <span className="from">From : </span> {product.from}
+              </div>{" "}
+              <div>
+                <span className="to"> To : </span> {product.to}
+              </div>
+            </div>
+          )}
           <div className="d-flex justify-content-between">
             <h2 style={{ color: "white" }}>
               <span style={{ color: "#0cc0df" }}>$</span>
               {price}/
               <span style={{ fontSize: "14px", color: "#6c9999" }}>Person</span>
             </h2>
-            <button
-              className="btn"
-              onClick={() => {
-                navigate(`/destinations/${product.id}`);
-              }}
-            >
-              Book
-            </button>
+            <Link to={`/destinations/${product.id}`}>
+              <button className="btn">{onBookings ? "View" : "Book"}</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   auth,
   createAuthUserWithEmailAndPassword,
@@ -26,6 +26,7 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const [formFields, steFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const dispatch = useDispatch();
@@ -66,12 +67,17 @@ const SignUpForm = () => {
       console.log(err);
     }
   };
-  // if (isAuth) {
-  //   return <Navigate to="/" />;
-  // }
+  useEffect(() => {
+    if (isAuth) {
+      setTimeout(() => {
+        setShouldRedirect(true);
+      }, 2000);
+    }
+  }, [isAuth]);
 
   return (
     <div>
+      {shouldRedirect && <Navigate to="/" />}
       <form action="" onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"

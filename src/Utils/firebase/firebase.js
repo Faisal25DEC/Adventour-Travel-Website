@@ -122,14 +122,16 @@ export const updateBookings = async (user, bookedDestination) => {
   await updateDoc(destinationRef, {
     bookings: [...bookings, bookedDestination],
   });
+  console.log("booking updated");
 };
 export const updateUserDocumentFromAuth = async (user, newDisplayName) => {
   console.log(newDisplayName);
   const userRef = doc(db, "users", user.uid);
   const userSnapshot = await getDoc(userRef);
-  await updateDoc(userRef, {
+  updateDoc(userRef, {
     displayName: newDisplayName,
+  }).then((res) => {
+    console.log(res);
   });
   console.log("document updated");
-  console.log(userSnapshot);
 };

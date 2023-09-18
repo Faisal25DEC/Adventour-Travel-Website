@@ -3,6 +3,7 @@ import {
   INITIATE_SIGNUP,
   LOGIN_USER,
   LOGOUT_USER,
+  UPDATE_USER_BOOKINGS,
 } from "./userTypes";
 
 const initialState = {
@@ -41,6 +42,12 @@ export const userReducer = (state = initialState, { type, payload }) => {
         isAuth: false,
         userDetails: null,
         signUp: false,
+      };
+    }
+    case UPDATE_USER_BOOKINGS: {
+      return {
+        ...state,
+        userDetails: { ...payload },
       };
     }
     default: {

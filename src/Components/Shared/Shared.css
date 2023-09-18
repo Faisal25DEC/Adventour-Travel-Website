@@ -71,3 +71,14 @@ a:hover {
 .btn:hover {
   color: white;
 }
+.guests {
+  color: #0cc0df;
+}
+.date {
+  width: 80%;
+  margin: auto;
+  margin: 1rem 0rem;
+  color: #0cc0df;
+  display: flex;
+  justify-content: space-between;
+}

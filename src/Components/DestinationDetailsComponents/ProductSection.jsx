@@ -14,25 +14,83 @@ import { useDispatch, useSelector } from "react-redux";
 import { productReducer } from "./../../Redux/productReducer/productReducer";
 import { getSingleProduct } from "../../Redux/productReducer/productActions";
 import { useParams } from "react-router";
-import { duration } from "@mui/material";
-import { getPlaceImages } from "../../Utils/unplash/unplash";
+
+import { bookingReducer } from "./../../Redux/bookingReducer/bookingReducer";
+
+import {
+  setDateDetails,
+  setGuests,
+  setPrice,
+} from "./../../Redux/bookingReducer/bookingActions";
+import { Link } from "react-router-dom";
+
+const unsplashApiKey = `GyO4Y3ccun7RvAO8u4mPM8e-KNFfw3jC38X9Q-UnHsI`;
+const unsplashApiUrl = `https://api.unsplash.com/search/photos/?client_id=${unsplashApiKey}`;
 
 export const ProductSection = () => {
+  const [render, setRender] = useState(false);
+  const bookingDetails = useSelector((state) => state.bookingReducer);
+  const { guests } = bookingDetails;
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [currentProductImages, setCurrentProductImages] = useState([]);
-  const [adultCount, setAdultCount] = useState(0);
   const { id } = useParams();
   const { currentProduct } = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
-  const getCurrentProductImages = async () => {
-    const placeImages = await getPlaceImages(currentProduct.name)();
-    setCurrentProductImages(placeImages);
+
+  const getPlaceImages = async (name) => {
+    console.log(name);
+    try {
+      let apiResponse = await fetch(`${unsplashApiUrl}&page=1&query=${name}`);
+      let placeImages = await apiResponse.json();
+      console.log(placeImages);
+      setCurrentProductImages(placeImages.results);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  // const getCurrentProductImages = async () => {
+  //   console.log("first");
+  //   const placeImages = await getPlaceImages(currentProduct.name);
+  // };
+  useEffect(() => {
+    getPlaceImages(currentProduct.name);
+    return function cleanup() {
+      setCurrentProductImages(null);
+    };
+  }, [currentProduct.name]);
   useEffect(() => {
     dispatch(getSingleProduct(id));
-    getCurrentProductImages();
+    setRender(!render);
   }, []);
+  // useEffect(() => {
+  //   dispatch(getSingleProduct(id));
+  //   getPlaceImages(currentProduct.name); // Call it here
+  // }, []);
+  console.log(currentProduct.name);
+  const formatDateToYYMMDD = (date) => {
+    const year = date.getFullYear().toString().slice(-4);
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
 
+  const handleDateChange = (e) => {
+    const fromDate = e.target.value;
+
+    const selectedDate = new Date(fromDate);
+    const lastDate = new Date(selectedDate);
+    lastDate.setDate(lastDate.getDate() + currentProduct.duration);
+
+    const formattedNewDate = formatDateToYYMMDD(lastDate);
+    console.log(formattedNewDate); // This will log the date in "yymmdd" format
+    const bookedTill = lastDate.getTime();
+    console.log(bookedTill);
+    dispatch(
+      setDateDetails({ fromDate, lastDate: formattedNewDate, bookedTill })
+    );
+  };
+  console.log(bookingDetails);
   return (
     <div style={{ marginTop: "8%" }}>
       <div className="container">
@@ -108,6 +166,7 @@ export const ProductSection = () => {
                 <div className="from">
                   <label htmlFor="">From</label>
                   <input
+                    onChange={handleDateChange}
                     type="date"
                     className="form-control date-select"
                     name=""
@@ -117,30 +176,37 @@ export const ProductSection = () => {
                 <div className="persons ms-3">
                   <label htmlFor="">Adults</label>
                   <div className="d-flex gap-2">
-                    <p onClick={() => setAdultCount(adultCount + 1)}>
+                    <p
+                      onClick={() => {
+                        dispatch(setGuests(1));
+                        dispatch(setPrice(currentProduct.price));
+                      }}
+                    >
                       <i class="fa-solid fa-chevron-up"></i>
                     </p>
                     <p
                       style={{ background: "#131313" }}
                       className="rounded px-2 py-1"
                     >
-                      {adultCount}
+                      {guests}
                     </p>
-                    <p onClick={() => setAdultCount(adultCount - 1)}>
+                    <p
+                      onClick={() => {
+                        if (guests <= 0) return;
+                        dispatch(setGuests(-1));
+                        dispatch(setPrice(currentProduct.price));
+                      }}
+                    >
                       <i class="fa-solid fa-chevron-down"></i>
                     </p>
                   </div>
                 </div>
-                <div className="till">
-                  <label htmlFor="">Till</label>
-                  <input
-                    type="date"
-                    className="form-control date-select"
-                    name=""
-                    id=""
-                  />
-                </div>
               </div>
+              <Link to="/checkout">
+                <button disabled={guests == 0} className="btn">
+                  Book Now
+                </button>
+              </Link>
               <Accordion defaultActiveKey="0" style={{ marginTop: "2rem" }}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>History</Accordion.Header>

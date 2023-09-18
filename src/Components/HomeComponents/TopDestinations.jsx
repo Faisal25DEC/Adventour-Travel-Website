@@ -68,7 +68,11 @@ export const TopDestinations = () => {
           {randomProducts.map((randomProduct) => {
             return (
               <SwiperSlide>
-                <DestinationCards onProduct={false} product={randomProduct} />
+                <DestinationCards
+                  onProduct={false}
+                  product={randomProduct}
+                  onBookings={false}
+                />
               </SwiperSlide>
             );
           })}

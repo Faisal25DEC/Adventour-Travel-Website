@@ -24,7 +24,7 @@ function App() {
       if (user) {
         console.log(user);
         console.log(user.displayName);
-        await createUserDocumentFromAuth(user, { bookings: ["test"] });
+        await createUserDocumentFromAuth(user, { bookings: [] });
         const data = getUserDocumentFromAuth(user);
         data.then((res) => {
           console.log(res.data());
