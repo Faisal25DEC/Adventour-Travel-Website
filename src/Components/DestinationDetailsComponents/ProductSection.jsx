@@ -15,7 +15,7 @@ import { productReducer } from "./../../Redux/productReducer/productReducer";
 import { getSingleProduct } from "../../Redux/productReducer/productActions";
 import { useParams } from "react-router";
 
-import { bookingReducer } from "./../../Redux/bookingReducer/bookingReducer";
+import { bookingReducer } from "../../Redux/bookingReducer/bookingReducer";
 
 import {
   setDateDetails,
