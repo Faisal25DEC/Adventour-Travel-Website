@@ -32,15 +32,16 @@
 }
 
 .mySwiper {
-  margin-top: 5%;
-  padding: 2%;
+  border-radius: 0;
+  padding: 6%;
   opacity: 0.8;
   background-color: #1b1b1b;
-  width: 120%;
 }
-.mySwiper2 {
-  width: 120%;
+
+.mySwiperThumb {
+  
 }
+
 
 .persons {
   background-color: #1b1b1b;

@@ -103,7 +103,7 @@ export const ProductSection = () => {
     <div style={{ marginTop: "8%" }}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 col-sm-12">
+          <div className="col-lg-6 col-sm-12">
             <Swiper
               style={{
                 "--swiper-navigation-color": "#fff",
@@ -113,14 +113,14 @@ export const ProductSection = () => {
               spaceBetween={10}
               thumbs={{ swiper: thumbsSwiper }}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
+              className="mySwiper rounded"
             >
               <SwiperSlide>
                 <img
                   className="img-fluid"
                   src={currentProduct.images}
-                  style={{ width: "100%", height: "30rem" }}
                   alt=""
+                  style={{ width: "100%", height: "30rem" }}
                 />
               </SwiperSlide>
               {currentProductImages?.map((currentProductImage) => {
@@ -147,7 +147,7 @@ export const ProductSection = () => {
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper"
+              className="mySwiperThumb mx-5"
             >
               <SwiperSlide>
                 <img
@@ -175,11 +175,11 @@ export const ProductSection = () => {
             </Swiper>
           </div>
           <div className="col-2"></div>
-          <div className="col-lg-6 col-sm-12">
+          <div className="col-lg-4 col-sm-12 ">
             <div className="details-card rounded grey-card p-4">
               <div className="row">
                 <div className="col-6">
-                  <h2>{currentProduct.name}</h2>
+                  <h4>{currentProduct.name}</h4>
                 </div>
                 <div className="col-6">
                   <h4 style={{ color: "#0cc0df" }} className="mt-2 float-end">
@@ -187,16 +187,41 @@ export const ProductSection = () => {
                   </h4>
                 </div>
               </div>
-              <p className="sub">{currentProduct.info}</p>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between mt-3">
                 <h4>
                   ₹{Math.floor(currentProduct.price)}/
                   <span style={{ color: "#0cc0df" }}>day</span>
                 </h4>
                 <h4>{currentProduct.duration} Days</h4>
               </div>
-
-              <div className="booking-dates d-flex justify-content-around mt-5">
+              <Accordion style={{ marginTop: "1rem" }}>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Description</Accordion.Header>
+                  <Accordion.Body>{currentProduct.info}</Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>History</Accordion.Header>
+                  <Accordion.Body>
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].history}
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>Climate</Accordion.Header>
+                  <Accordion.Body>
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].climate}
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>Best Time To Visit</Accordion.Header>
+                  <Accordion.Body>
+                    {currentProductStateDetails[0] &&
+                      currentProductStateDetails[0].about}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+              <div className="booking-dates d-flex justify-content-between mt-5">
                 <div className="from">
                   <label htmlFor="">From</label>
                   <input
@@ -213,11 +238,12 @@ export const ProductSection = () => {
                   <div className="d-flex gap-2">
                     <p
                       onClick={() => {
-                        dispatch(setGuests(1));
+                        if (guests <= 0) return;
+                        dispatch(setGuests(-1));
                         dispatch(setPrice(currentProduct.price));
                       }}
                     >
-                      <i class="fa-solid fa-chevron-up"></i>
+                      <i class="fa-solid fa-chevron-down"></i>
                     </p>
                     <p
                       style={{ background: "#131313" }}
@@ -227,12 +253,11 @@ export const ProductSection = () => {
                     </p>
                     <p
                       onClick={() => {
-                        if (guests <= 0) return;
-                        dispatch(setGuests(-1));
+                        dispatch(setGuests(1));
                         dispatch(setPrice(currentProduct.price));
                       }}
                     >
-                      <i class="fa-solid fa-chevron-down"></i>
+                      <i class="fa-solid fa-chevron-up"></i>
                     </p>
                   </div>
                 </div>
@@ -242,29 +267,6 @@ export const ProductSection = () => {
                   Book Now
                 </button>
               </Link>
-              <Accordion defaultActiveKey="0" style={{ marginTop: "2rem" }}>
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>History</Accordion.Header>
-                  <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].history}
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Climate</Accordion.Header>
-                  <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].climate}
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
-                  <Accordion.Header>Best Time To Visit</Accordion.Header>
-                  <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].about}
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
             </div>
           </div>
         </div>

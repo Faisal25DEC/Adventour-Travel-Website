@@ -72,6 +72,12 @@ a:hover {
   }
 }
 
+.productList {
+  width: 400px;
+  background-color: #1b1b1b;
+  border-bottom: 0.5px #0cc0df solid;
+}
+
 .btn:hover {
   color: white;
 }

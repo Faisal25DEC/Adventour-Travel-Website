@@ -66,6 +66,32 @@ export const NavbarShared = () => {
                 placeholder="Search"
                 aria-label="Search"
               />
+              <div className="ms-lg-4 ms-sm-0 mt-sm-2 productList position-absolute p-2">
+                <div className="row">
+                  <div className="col-4">
+                    <img src={logo} className="img-fluid" alt="" />
+                  </div>
+                  <div className="col-2"></div>
+                  <div className="col-5">
+                      <h4 className="sub">Title</h4>
+                      <p className="sub">State</p>
+                      <p className="sub">$Price</p>
+                      <button className="btn">Book</button>
+                  </div>
+                </div>
+                <div className="row mt-2">
+                  <div className="col-4">
+                    <img src={logo} className="img-fluid" alt="" />
+                  </div>
+                  <div className="col-2"></div>
+                  <div className="col-5">
+                      <h4 className="sub">Title</h4>
+                      <p className="sub">State</p>
+                      <p className="sub">$Price</p>
+                      <button className="btn">Book</button>
+                  </div>
+                </div>
+              </div>
             </form>
             <ul className="navbar-nav gap-3">
               <Link to="/" className={`nav-brand me-2 ${isLinkActive("/") ? "active-link" : ""}`} onClick={() => setActiveLink("home")}>

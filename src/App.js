@@ -40,6 +40,14 @@ function App() {
   }, [dispatch]);
   return (
     <div>
+      <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <NavbarShared />
       <AllRoutes />
       <Footer />
