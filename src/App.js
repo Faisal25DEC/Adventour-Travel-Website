@@ -22,7 +22,7 @@ function App() {
 
   const handleWindowClicked = () => {
     dispatch(setWindowClick());
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
@@ -44,7 +44,7 @@ function App() {
     return unsubscribe;
   }, [dispatch]);
   return (
-    <div onClick={handleWindowClicked}>
+    <div>
       <div class="background">
         <span></span>
         <span></span>

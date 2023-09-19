@@ -207,6 +207,7 @@ const Checkout = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -217,26 +218,30 @@ const Checkout = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="streetAddress">Street Address:</label>
                 <input
-                  type="text"
+                  type="address"
                   id="streetAddress"
                   name="streetAddress"
                   value={formData.streetAddress}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="postalCode">Postal Code:</label>
                 <input
-                  type="text"
+                  type="number"
                   id="postalCode"
                   name="postalCode"
+                  maxLength={7}
                   value={formData.postalCode}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -247,6 +252,7 @@ const Checkout = () => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="form">
@@ -256,6 +262,7 @@ const Checkout = () => {
                     name="useBillingAddress"
                     checked={useBillingAddress}
                     onChange={() => setUseBillingAddress(!useBillingAddress)}
+                    required
                   />{" "}
                   Use as Billing Address
                 </label>
