@@ -23,6 +23,7 @@ export const BookingBanner = () => {
               <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
                 Your journies are like treasure
               </h6>
+              <h1 className='heading'>Relive Your Memories.</h1>
               <h1 className="heading">
                 Your
                 <span style={{ color: "#0CC0DF" }}> Bookings.</span>🚀
