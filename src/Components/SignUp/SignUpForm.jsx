@@ -56,12 +56,13 @@ const SignUpForm = () => {
       );
 
       await updateUserDocumentFromAuth(user, displayName);
-      const data = getUserDocumentFromAuth(user);
-      data.then((res) => {
-        console.log(res.data());
-        dispatch(loginUser({ ...res.data(), uid: user.uid }));
-      });
-      resetFormFields();
+      // const data = getUserDocumentFromAuth(user);
+      // data.then((res) => {
+      //   console.log(res.data());
+      //   dispatch(loginUser({ ...res.data(), uid: user.uid }));
+      //   resetFormFields();
+      // });
+
       console.log(user);
     } catch (err) {
       console.log(err);
