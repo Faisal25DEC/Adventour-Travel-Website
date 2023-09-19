@@ -56,12 +56,12 @@ const Payment = () => {
       setCurrentStep(3);
 
       Swal.fire({
-        title: "THANK YOU",
-        text: "Travel more with ADVENTOUR",
+        title: "Confirmed",
+        text: "Travel more with Adventour.",
         imageUrl:
           "https://media.istockphoto.com/id/1285301614/photo/young-man-arms-outstretched-by-the-sea-at-sunrise-enjoying-freedom-and-life-people-travel.jpg?s=612x612&w=0&k=20&c=0QW6GnkuFNYcPZhy26XVHuTc2avJTK8u6l_1iT0SlZk=",
         imageWidth: 400,
-        imageHeight: 200,
+        imageHeight: 400,
         imageAlt: "Custom image",
 
         customClass: {
