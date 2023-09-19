@@ -1,0 +1,110 @@
+:root {
+  --styled-text-color: #0cc0df;
+  --primary-background-color: #1b1b1b;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: white;
+}
+.btn {
+  background-color: #0cc0df;
+  color: #131313;
+}
+
+.active-link {
+  border-bottom: 2px solid #0cc0df;
+}
+
+.search-box {
+  background: #1b1b1b;
+  outline: none;
+  border: none;
+  width: 400px;
+}
+
+.search-box::placeholder {
+  color: rgb(122, 122, 122);
+}
+
+.card {
+  background-color: #131313;
+  border-radius: 20px;
+}
+
+.card:hover {
+  border: #0cc0df 0.5px solid;
+}
+
+.card-body {
+  background: transparent;
+  border-radius: 25px;
+}
+
+.card:hover,
+.card-body:hover {
+  background-color: #1b1b1b;
+  transition: 0.5s;
+}
+
+.card-img {
+  border-radius: 10px !important;
+  width: 20rem;
+  height: 19rem;
+  margin: auto;
+}
+.location-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 3px;
+}
+.destination-card-title {
+  font-size: 1rem;
+}
+.dropdown-menu {
+  background-color: var(--primary-background-color);
+}
+.dropdown-item {
+  color: white;
+}
+.dropdown-item:hover {
+  background-color: rgb(47, 83, 247);
+  color: white;
+}
+
+@media only screen and (max-width: 720px) {
+  .search-box {
+    width: 100% !important;
+  }
+}
+
+.productList {
+  width: 400px;
+  background-color: #1b1b1b;
+  border-bottom: 0.5px #0cc0df solid;
+  height: 500px;
+  overflow-x: scroll;
+}
+
+.search-card:hover {
+  background-color: #131313;
+  transition-duration: 0.5s;
+}
+
+.btn:hover {
+  color: white;
+}
+.guests {
+  color: #0cc0df;
+}
+.date {
+  width: 80%;
+  margin: auto;
+  margin: 1rem 0rem;
+  color: #0cc0df;
+  display: flex;
+  justify-content: space-between;
+}

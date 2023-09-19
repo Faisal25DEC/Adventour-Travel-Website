@@ -1,0 +1,16 @@
+// .sign-in-container {
+//   display: flex;
+//   flex-direction: column;
+//   width: 480px;
+// }
+h2 {
+  margin: 0;
+}
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.google-btn:hover {
+  background-color: #DB4437;
+}

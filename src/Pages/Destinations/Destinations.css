@@ -1,3 +1,28 @@
 .destinations-wrapper {
   background-color: #131313;
+  margin-top: 10%;
+}
+.destination-cards-wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 10% !important;
+}
+
+@media only screen and (max-width: 720px) {
+  .destination-cards-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .destination-cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .destination-cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
