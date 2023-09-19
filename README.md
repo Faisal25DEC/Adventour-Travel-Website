@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Adventour
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Tech Stack](#tech-stack)
+- [User Interface](#user-interface)
+- [Contributors](#contributors)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+This is travel booking website exclusively for bookings various destinations across India. We are doing this as a group project given to us by Masai School to hone our Development Skills.
+The entire website is fully responsive accross all the screens. This was made easy by using Bootstrap. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployed Link
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://6509a63c10630021e2c87060--inspiring-zuccutto-cb8476.netlify.app/
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- SwiperJS
+- Firebase
+- RazorPay
+- Json Server
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Entirely User specific experience and backend integrated website
+- To be able to sign in and create an account with  Firebase.
+- Interacting with products coming in from the json-server.
+- To be able to book a wide variety of destinations complete with RazorPay payment gateway integration.
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## User Interface
 
-### `npm run eject`
+**HOME PAGE**
+![home1](https://github.com/Faisal25DEC/adventour/assets/136161964/3ea302ec-5182-42bd-9c84-7187b2dc2bf7)
+![home2](https://github.com/Faisal25DEC/adventour/assets/136161964/ed7bff06-8add-42c3-99a9-46d524af4b98)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Destinations**
+![destinations1](https://github.com/Faisal25DEC/adventour/assets/136161964/5ad3c5a0-c313-403e-a062-f9ce821201ac)
+![destinations2](https://github.com/Faisal25DEC/adventour/assets/136161964/d5654dd5-b57d-4e62-b1cd-d061f5aabfb3)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Destination Details** 
+![destinationDetails](https://github.com/Faisal25DEC/adventour/assets/136161964/2c34d582-fea6-4267-aa55-2780a310cd41)
+![destinationDetails2](https://github.com/Faisal25DEC/adventour/assets/136161964/d71f7e17-59cb-4d8e-bd76-c12760c5a134)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Login**
 
-## Learn More
+![login](https://github.com/Faisal25DEC/adventour/assets/136161964/a591fcef-56c9-48b2-bf3b-c6dfdf559f89)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Signup**
+![signup1](https://github.com/Faisal25DEC/adventour/assets/136161964/ebca00f4-7f50-41d9-9b78-a1c6ec58db27)
+![signup2](https://github.com/Faisal25DEC/adventour/assets/136161964/04a8ca95-5d94-4726-8a75-09644d654da2)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Checkout**
+![checkout](https://github.com/Faisal25DEC/adventour/assets/136161964/d778c3e2-5b9e-4a06-91cc-b5b3444562d5)
 
-### Code Splitting
+**payment**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![razorpay](https://github.com/Faisal25DEC/adventour/assets/136161964/e8d6d223-715f-43bc-9e04-4f5aea2881b7)
+![alert](https://github.com/Faisal25DEC/adventour/assets/136161964/03330b9c-21c3-4945-8b44-64a3f5268126)
 
-### Analyzing the Bundle Size
+**Bookings**
+![bookings1](https://github.com/Faisal25DEC/adventour/assets/136161964/e7965745-5548-4fe5-8832-95118763fe9d)
+![bookings2](https://github.com/Faisal25DEC/adventour/assets/136161964/4fe5daec-55e8-429a-b1cf-3f7743075d01)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributors
 
-### Making a Progressive Web App
+- Adnan Baig
+- Himanshu Sharan
+- Md Amir
+- Muhammad Faisal
+- Nikita Rathee
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Installation
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+$ git clone [repository URL]
+$ cd project-directory
+$ npm install  # or any other package manager command
