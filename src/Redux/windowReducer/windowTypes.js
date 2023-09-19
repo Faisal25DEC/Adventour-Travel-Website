@@ -1,0 +1,2 @@
+export const WINDOW_CLICKED = "WINDOW_CLICKED";
+export const NAVBAR_TYPED = "NAVBAR_TYPED";

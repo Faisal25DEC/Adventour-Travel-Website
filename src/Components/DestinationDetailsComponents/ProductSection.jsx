@@ -3,6 +3,7 @@ import "./ProductStyles.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
+import LinesEllipsis from "react-lines-ellipsis";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -26,6 +27,7 @@ import {
   setPrice,
 } from "./../../Redux/bookingReducer/bookingActions";
 import { Link } from "react-router-dom";
+import { MapComponent } from "./MapComponent";
 
 const unsplashApiKey = `GyO4Y3ccun7RvAO8u4mPM8e-KNFfw3jC38X9Q-UnHsI`;
 const unsplashApiUrl = `https://api.unsplash.com/search/photos/?client_id=${unsplashApiKey}`;
@@ -40,6 +42,8 @@ export const ProductSection = () => {
   const { currentProduct, currentProductStateDetails } = useSelector(
     (state) => state.productReducer
   );
+  const [truncated, setTruncated] = useState(true);
+
   console.log(currentProductStateDetails);
   const dispatch = useDispatch();
 
@@ -174,8 +178,7 @@ export const ProductSection = () => {
               })}
             </Swiper>
           </div>
-          <div className="col-2"></div>
-          <div className="col-lg-4 col-sm-12 ">
+          <div className="col-lg-6 col-sm-12 ">
             <div className="details-card rounded grey-card p-4">
               <div className="row">
                 <div className="col-6">
@@ -189,7 +192,7 @@ export const ProductSection = () => {
               </div>
               <div className="d-flex justify-content-between mt-3">
                 <h4>
-                  ₹{Math.floor(currentProduct.price)}/
+                  ${Math.floor(currentProduct.price)}/
                   <span style={{ color: "#0cc0df" }}>day</span>
                 </h4>
                 <h4>{currentProduct.duration} Days</h4>
@@ -197,27 +200,152 @@ export const ProductSection = () => {
               <Accordion style={{ marginTop: "1rem" }}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Description</Accordion.Header>
-                  <Accordion.Body>{currentProduct.info}</Accordion.Body>
+                  <Accordion.Body>
+                    {truncated ? (
+                      <LinesEllipsis
+                        text={currentProduct.info}
+                        maxLine="3"
+                        ellipsis={
+                          <>
+                            ...{" "}
+                            <p
+                              style={{ color: "#0cc0df", cursor: "pointer" }}
+                              onClick={() => setTruncated(!truncated)}
+                            >
+                              Read More
+                            </p>
+                          </>
+                        }
+                        basedOn="words"
+                      />
+                    ) : (
+                      <div>
+                        {currentProduct.info}{" "}
+                        <p
+                          style={{ color: "#0cc0df", cursor: "pointer" }}
+                          onClick={() => setTruncated(!truncated)}
+                        >
+                          Less
+                        </p>
+                      </div>
+                    )}
+                  </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>History</Accordion.Header>
                   <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].history}
+                    {currentProductStateDetails[0] && truncated ? (
+                      <LinesEllipsis
+                        text={
+                          currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].history
+                        }
+                        maxLine="3"
+                        ellipsis={
+                          <>
+                            ...{" "}
+                            <p
+                              style={{ color: "#0cc0df", cursor: "pointer" }}
+                              onClick={() => setTruncated(!truncated)}
+                            >
+                              Read More
+                            </p>
+                          </>
+                        }
+                        basedOn="words"
+                      />
+                    ) : (
+                      <div>
+                        {currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].history}{" "}
+                        <p
+                          style={{ color: "#0cc0df", cursor: "pointer" }}
+                          onClick={() => setTruncated(!truncated)}
+                        >
+                          Less
+                        </p>
+                      </div>
+                    )}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Climate</Accordion.Header>
                   <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].climate}
+                    {currentProductStateDetails[0] && truncated ? (
+                      <LinesEllipsis
+                        text={
+                          currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].climate
+                        }
+                        maxLine="3"
+                        ellipsis={
+                          <>
+                            ...{" "}
+                            <p
+                              style={{ color: "#0cc0df", cursor: "pointer" }}
+                              onClick={() => setTruncated(!truncated)}
+                            >
+                              Read More
+                            </p>
+                          </>
+                        }
+                        basedOn="words"
+                      />
+                    ) : (
+                      <div>
+                        {currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].climate}{" "}
+                        <p
+                          style={{ color: "#0cc0df", cursor: "pointer" }}
+                          onClick={() => setTruncated(!truncated)}
+                        >
+                          Less
+                        </p>
+                      </div>
+                    )}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
                   <Accordion.Header>Best Time To Visit</Accordion.Header>
                   <Accordion.Body>
-                    {currentProductStateDetails[0] &&
-                      currentProductStateDetails[0].about}
+                    {currentProductStateDetails[0] && truncated ? (
+                      <LinesEllipsis
+                        text={
+                          currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].about
+                        }
+                        maxLine="3"
+                        ellipsis={
+                          <>
+                            ...{" "}
+                            <p
+                              style={{ color: "#0cc0df", cursor: "pointer" }}
+                              onClick={() => setTruncated(!truncated)}
+                            >
+                              Read More
+                            </p>
+                          </>
+                        }
+                        basedOn="words"
+                      />
+                    ) : (
+                      <div>
+                        {currentProductStateDetails[0] &&
+                          currentProductStateDetails[0].about}{" "}
+                        <p
+                          style={{ color: "#0cc0df", cursor: "pointer" }}
+                          onClick={() => setTruncated(!truncated)}
+                        >
+                          Less
+                        </p>
+                      </div>
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header>Location</Accordion.Header>
+                  <Accordion.Body>
+                    <MapComponent />
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -236,14 +364,15 @@ export const ProductSection = () => {
                 <div className="persons ms-3">
                   <label htmlFor="">Adults</label>
                   <div className="d-flex gap-2">
-                    <p
-                      onClick={() => {
-                        if (guests <= 0) return;
-                        dispatch(setGuests(-1));
-                        dispatch(setPrice(currentProduct.price));
-                      }}
-                    >
-                      <i class="fa-solid fa-chevron-down"></i>
+                    <p style={{ cursor: "pointer" }}>
+                      <i
+                        onClick={(e) => {
+                          dispatch(setGuests(1));
+                          dispatch(setPrice(currentProduct.price));
+                          e.stopPropagation();
+                        }}
+                        class="fa-solid fa-chevron-up"
+                      ></i>
                     </p>
                     <p
                       style={{ background: "#131313" }}
@@ -251,19 +380,22 @@ export const ProductSection = () => {
                     >
                       {guests}
                     </p>
-                    <p
-                      onClick={() => {
-                        dispatch(setGuests(1));
-                        dispatch(setPrice(currentProduct.price));
-                      }}
-                    >
-                      <i class="fa-solid fa-chevron-up"></i>
+                    <p style={{ cursor: "pointer" }}>
+                      <i
+                        onClick={(e) => {
+                          if (guests <= 0) return;
+                          dispatch(setGuests(-1));
+                          dispatch(setPrice(currentProduct.price));
+                          e.stopPropagation();
+                        }}
+                        class="fa-solid fa-chevron-down"
+                      ></i>
                     </p>
                   </div>
                 </div>
               </div>
               <Link to="/checkout">
-                <button disabled={guests == 0} className="btn">
+                <button disabled={guests === 0} className="btn">
                   Book Now
                 </button>
               </Link>

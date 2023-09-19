@@ -7,10 +7,10 @@ const HomeBanner = () => {
   const navigate = useNavigate();
   return (
     <div className="home-div">
-      <div className="container mt-5">
+      <div className="container mt-5 mt-sm-5">
         <div className="row gap-5">
           <div className="col-lg-7 col-md-7 col-sm-12">
-            <div className="text-section pe-2">
+            <div className="text-section pe-2 mt-lg-0 mt-sm-5">
               <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
                 All you need is Adventour.
               </h6>

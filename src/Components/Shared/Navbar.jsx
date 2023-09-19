@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../Assets/icons/adventour.png";
 import "../Shared/Shared.css";
 import {
@@ -13,11 +13,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../Redux/userReducer/userActions";
 import { getAllProducts } from "../../Redux/productReducer/productActions";
 import { signOut } from "firebase/auth";
+import { setNavbarTyped } from "../../Redux/windowReducer/windowActions";
 
-export const NavbarShared = () => { 
+export const NavbarShared = () => {
+  const [inputField, setInputField] = useState("");
+  const { totalProducts } = useSelector((state) => state.productReducer);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [activeLink, setActiveLink] = useState("");
   const location = useLocation();
+  const windowClicked = useSelector((store) => store.windowReducer);
 
+  const handleInputFieldChange = (e) => {
+    setInputField(e.target.value.toLowerCase());
+    dispatch(setNavbarTyped());
+  };
+
+  
   const isLinkActive = (path) => {
     return location.pathname === path;
   };
@@ -28,19 +39,44 @@ export const NavbarShared = () => {
   const dispatch = useDispatch();
   console.log(isAuth);
 
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        func.apply(null, args);
+      }, delay);
+    };
+  };
+
+  const filterTotalProducts = (totalProducts) => {
+    const filteredProductsArray = totalProducts.filter((product) => {
+      return product.name.toLowerCase().includes(inputField);
+    });
+    setFilteredProducts(filteredProductsArray);
+    console.log(filteredProductsArray);
+  };
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
 
+  useEffect(() => {
+    const debouncedFunc = debounce(filterTotalProducts, 2000);
+    debouncedFunc(totalProducts);
+    console.log(totalProducts);
+  }, [inputField, totalProducts]);
+
   return (
     <div>
-      
       <nav
         style={{ background: "#131313" }}
         className="navbar fixed-top navbar-expand-lg navbar-dark "
       >
         <div className="container">
-          <Link to="/" >
+          <Link to="/">
             <img src={logo} alt="" className="img-fluid me-2" width={50} />
             Adventour.
           </Link>
@@ -65,47 +101,74 @@ export const NavbarShared = () => {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={handleInputFieldChange}
               />
-              <div className="ms-lg-4 ms-sm-0 mt-sm-2 productList position-absolute p-2">
-                <div className="row">
-                  <div className="col-4">
-                    <img src={logo} className="img-fluid" alt="" />
-                  </div>
-                  <div className="col-2"></div>
-                  <div className="col-5">
-                      <h4 className="sub">Title</h4>
-                      <p className="sub">State</p>
-                      <p className="sub">$Price</p>
-                      <button className="btn">Book</button>
-                  </div>
+              {inputField !== "" && (
+                <div className={`ms-lg-4 ms-sm-0 mt-sm-2 ${!windowClicked? "d-block" : "d-none"} productList position-absolute p-3`}>
+                  {filteredProducts?.map((product) => (
+                    <div className="search-card row mt-3 p-2">
+                      <div className="col-6">
+                        <img
+                          src={product.images}
+                          className="img-fluid"
+                          alt=""
+                        />
+                      </div>
+                      <div className="col-6">
+                        <p style={{ color: "#0cc0df" }} className="sub">
+                          {product.name}
+                        </p>
+                        <p className="sub">{product.state}</p>
+                        <p className="sub">${product.price}</p>
+                        <u style={{ color: "#06c999", cursor: "pointer" }}>
+                          Book
+                        </u>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="row mt-2">
-                  <div className="col-4">
-                    <img src={logo} className="img-fluid" alt="" />
-                  </div>
-                  <div className="col-2"></div>
-                  <div className="col-5">
-                      <h4 className="sub">Title</h4>
-                      <p className="sub">State</p>
-                      <p className="sub">$Price</p>
-                      <button className="btn">Book</button>
-                  </div>
-                </div>
-              </div>
+              )}
             </form>
             <ul className="navbar-nav gap-3">
-              <Link to="/" className={`nav-brand me-2 ${isLinkActive("/") ? "active-link" : ""}`} onClick={() => setActiveLink("home")}>
-                <p className="nav-link p-0 mt-2 " aria-current="page" aria-disabled="false" tabIndex="-1">
+              <Link
+                to="/"
+                className={`nav-brand me-2 ${
+                  isLinkActive("/") ? "active-link" : ""
+                }`}
+                onClick={() => setActiveLink("home")}
+              >
+                <p
+                  className="nav-link p-0 mt-2 "
+                  aria-current="page"
+                  aria-disabled="false"
+                  tabIndex="-1"
+                >
                   Home
                 </p>
               </Link>
-              <Link to="/destinations"  className={`nav-item ${isLinkActive("/destinations") ? "active-link" : ""}`} onClick={() => setActiveLink("destinations")}>
-                <p className="nav-link p-0 mt-2" aria-disabled="true" tabIndex="-1">
+              <Link
+                to="/destinations"
+                className={`nav-item ${
+                  isLinkActive("/destinations") ? "active-link" : ""
+                }`}
+                onClick={() => setActiveLink("destinations")}
+              >
+                <p
+                  className="nav-link p-0 mt-2"
+                  aria-disabled="true"
+                  tabIndex="-1"
+                >
                   Destinations
                 </p>
               </Link>
 
-              <Link to="/bookings" className={`nav-item ${isLinkActive("/bookings") ? "active-link" : ""}`} onClick={() => setActiveLink("bookings")}>
+              <Link
+                to="/bookings"
+                className={`nav-item ${
+                  isLinkActive("/bookings") ? "active-link" : ""
+                }`}
+                onClick={() => setActiveLink("bookings")}
+              >
                 <p
                   className="nav-link p-0 mt-2"
                   tabIndex="-1"
@@ -116,9 +179,7 @@ export const NavbarShared = () => {
               </Link>
               <Link className="nav-item">
                 <p className="nav-link p-0 mt-2" tabIndex="-1">
-                  {isAuth && userDetails
-                    ? userDetails.displayName
-                    : ""}
+                  {isAuth && userDetails ? userDetails.displayName : ""}
                 </p>
               </Link>
               {!isAuth ? (

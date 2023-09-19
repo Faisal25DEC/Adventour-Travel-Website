@@ -15,9 +15,14 @@ import {
 import { loginUser } from "./Redux/userReducer/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./Redux/userReducer/userReducer";
+import { setWindowClick } from "./Redux/windowReducer/windowActions";
 function App() {
   const { isAuth, userDetails } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+
+  const handleWindowClicked = () => {
+    dispatch(setWindowClick());
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
@@ -39,7 +44,7 @@ function App() {
     return unsubscribe;
   }, [dispatch]);
   return (
-    <div>
+    <div onClick={handleWindowClicked}>
       <div class="background">
         <span></span>
         <span></span>

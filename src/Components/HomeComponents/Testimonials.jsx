@@ -17,26 +17,12 @@ export const Testimonials = () => {
   return (
     <div className="container mt-5">
       <div className="comp-heading">
-        <div className="row">
-          <div className="col-6">
-            <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
-              What They Say
-            </h6>
-            <h1>
-              Our Customers Say <br /> About Us
-            </h1>
-          </div>
-          <div className="col-6">
-            {/* <div className="carousel-btns mt-5 float-end">
-              <button className="btn">
-                <i class="fa-solid fa-chevron-left bg-transparent"></i>
-              </button>
-              <button className="btn ms-3">
-                <i class="fa-solid fa-chevron-right bg-transparent"></i>{" "}
-              </button>
-            </div> */}
-          </div>
-        </div>
+        <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
+          What They Say
+        </h6>
+        <h1>
+          Our Customers Say <br /> About Us
+        </h1>
       </div>
 
       <div className="testimonial-carousel mt-3 mb-5">
@@ -234,7 +220,9 @@ export const Testimonials = () => {
             <h1>Get Started with Adventour!</h1>
           </div>
           <div className="col-6">
-            <button className="btn mt-4 float-end">Get Started <i class="fa-solid fa-arrow-right"></i></button>
+            <button className="btn mt-4 float-end">
+              Get Started <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>

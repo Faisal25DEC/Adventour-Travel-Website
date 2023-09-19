@@ -16,9 +16,10 @@ const initialState = {
 export const bookingReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_GUESTS: {
+      console.log(state.guests);
       return {
         ...state,
-        guests: state.guests + payload,
+        guests: +state.guests + +payload ,
       };
     }
     case SET_PRICE: {

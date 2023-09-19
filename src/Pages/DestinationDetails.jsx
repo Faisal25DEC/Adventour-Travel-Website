@@ -9,8 +9,9 @@ export const DestinationDetails = () => {
   
   return (
     <div>
-      <Fade up><ProductSection/></Fade>
-      <Fade up><MapComponent/></Fade>
+      <Fade left><ProductSection/></Fade>
+      {/* <Fade up><MapComponent/></Fade> */}
+
       <Fade up><TopDestinations/></Fade>
     </div>
   )

@@ -28,7 +28,7 @@ const DestinationBanner = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-7 col-md-7 col-sm-12">
-            <div className="text-section pe-2">
+            <div className="text-section mt-5 pe-2">
               <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
                 Ready to start!
               </h6>
@@ -37,7 +37,7 @@ const DestinationBanner = () => {
                 <span style={{ color: "#0CC0DF" }}> Experiences.</span>
               </h1>
             </div>
-            <div className="search-destinations d-flex">
+            {/* <div className="search-destinations d-flex">
               <div style={{ background: "#1b1b1b" }} className="col-5">
                 <label style={{ background: "#1b1b1b" }} htmlFor="">
                   Location
@@ -78,7 +78,7 @@ const DestinationBanner = () => {
                   style={{ color: "#000919", background: "transparent" }}
                 ></i>
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="col-lg-5 col-md-5 d-none d-lg-block d-md-block">
             <div className="swiper-right">
@@ -105,7 +105,7 @@ const DestinationBanner = () => {
                           className="img-fluid banner-swiper"
                           style={{ width: "100%", height: "25rem" }}
                           src={product.images}
-                          alt=""
+                          alt="Location-Image"
                         />
 
                         <p className="position-absolute bottom-0 text-center img-text p-2 mb-0">

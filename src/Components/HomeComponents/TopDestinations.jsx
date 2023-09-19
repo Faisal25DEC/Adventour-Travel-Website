@@ -25,18 +25,14 @@ export const TopDestinations = () => {
   }, []);
 
   return (
-    <div className="container" style={{marginTop: "10%"}}>
+    <div className="container" style={{ marginTop: "10%" }}>
       <div className="comp-heading">
-        <div className="row">
-          <div className="col-6">
-            <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
-              Top Destination
-            </h6>
-            <h1>
-              Wanderlist for <br /> Your Wanderlust
-            </h1>
-          </div>
-        </div>
+        <h6 style={{ color: "#0CC0DF", letterSpacing: "2px" }}>
+          Top Destination
+        </h6>
+        <h1>
+          Wanderlist for <br /> Your Wanderlust
+        </h1>
       </div>
       <div className="cards-carousel mt-5">
         <Swiper

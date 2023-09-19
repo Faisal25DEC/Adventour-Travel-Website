@@ -60,13 +60,13 @@ export const DestinationCards = ({ onProduct, product, onBookings }) => {
           </p>
           {onProduct && (
             <div className="duration-rating-wrapper">
-              <div className="rating">
+              {/* <div className="rating">
                 <div className="rating-icon">
                   <img src={star} alt="" />
                 </div>
 
                 <p>Star</p>
-              </div>
+              </div> */}
             </div>
           )}
 

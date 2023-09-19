@@ -11,8 +11,7 @@ export const BookingsSection = () => {
       };
   return (
     <div className="container mt-5">
-      <h1 className="heading">Bookings</h1>
-      <div className="filters">
+      <div style={{marginTop: "10%"}} className="filters d-flex justify-content-center">
       <ul className="nav nav-tabs border-0">
         <li className="nav-item">
           <p

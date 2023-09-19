@@ -14,7 +14,7 @@ export const PastSection = () => {
             product.bookedTill < Date.now()
           ) {
             return (
-              <div className="col-lg-4 col-md-2 col-sm-1 col-xs-1">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <DestinationCards
                 onProduct={false}
                 product={product}

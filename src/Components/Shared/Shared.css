@@ -35,6 +35,15 @@ a:hover {
   border-radius: 20px;
 }
 
+.card:hover {
+  border: #0cc0df 0.5px solid;
+}
+
+.card-body {
+  background: transparent;
+  border-radius: 25px;
+}
+
 .card:hover,
 .card-body:hover {
   background-color: #1b1b1b;
@@ -53,7 +62,7 @@ a:hover {
   margin-bottom: 3px;
 }
 .destination-card-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .dropdown-menu {
   background-color: var(--primary-background-color);
@@ -76,6 +85,13 @@ a:hover {
   width: 400px;
   background-color: #1b1b1b;
   border-bottom: 0.5px #0cc0df solid;
+  height: 500px;
+  overflow-x: scroll;
+}
+
+.search-card:hover {
+  background-color: #131313;
+  transition-duration: 0.5s;
 }
 
 .btn:hover {

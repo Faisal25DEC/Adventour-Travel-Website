@@ -7,12 +7,12 @@ export const MapComponent = () => {
   console.log(currentProduct.location);
   return (
     <div className="container" style={{ marginTop: "10%" }}>
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ width: "100%" }}>
         <div style={{ width: "100%" }}>
           <iframe
             class="gmap_iframe"
             width="100%"
-            height="700"
+            height="400"
             frameborder="0"
             scrolling="no"
             marginheight="0"
