@@ -20,9 +20,8 @@ https://6509a63c10630021e2c87060--inspiring-zuccutto-cb8476.netlify.app/
 
 ## Tech Stack
 
-- HTML
+- React.js
 - CSS
-- JavaScript
 - Bootstrap
 - SwiperJS
 - Firebase
