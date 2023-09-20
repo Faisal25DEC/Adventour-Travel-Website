@@ -16,7 +16,7 @@ The entire website is fully responsive accross all the screens. This was made ea
 
 ## Deployed Link
 
-https://650aace860bc91289781fa8a--inspiring-zuccutto-cb8476.netlify.app/
+https://adventour-masai.netlify.app/
 
 ## Tech Stack
 
