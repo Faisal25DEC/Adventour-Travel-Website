@@ -28,7 +28,6 @@ export const NavbarShared = () => {
     dispatch(setNavbarTyped());
   };
 
-  
   const isLinkActive = (path) => {
     return location.pathname === path;
   };
@@ -104,7 +103,11 @@ export const NavbarShared = () => {
                 onChange={handleInputFieldChange}
               />
               {inputField !== "" && (
-                <div className={`ms-lg-4 ms-sm-0 mt-sm-2 ${!windowClicked? "d-block" : "d-none"} productList position-absolute p-3`}>
+                <div
+                  className={`ms-lg-4 ms-sm-0 mt-sm-2 ${
+                    !windowClicked ? "d-block" : "d-none"
+                  } productList position-absolute p-3`}
+                >
                   {filteredProducts?.map((product) => (
                     <div className="search-card row mt-3 p-2">
                       <div className="col-6">
@@ -120,9 +123,11 @@ export const NavbarShared = () => {
                         </p>
                         <p className="sub">{product.state}</p>
                         <p className="sub">${product.price}</p>
-                        <u style={{ color: "#06c999", cursor: "pointer" }}>
-                          Book
-                        </u>
+                        <Link to={`/destinations/${product.id}`}>
+                          <u style={{ color: "#06c999", cursor: "pointer" }}>
+                            Book
+                          </u>
+                        </Link>
                       </div>
                     </div>
                   ))}
