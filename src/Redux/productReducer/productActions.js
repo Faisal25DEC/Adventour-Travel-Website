@@ -15,7 +15,7 @@ const createAction = (type, payload) => {
   return { type, payload };
 };
 
-const baseUrl = `https://jittery-puce-spider.cyclic.cloud`;
+const baseUrl = `https://alcazar.onrender.com`;
 
 export const getAllProducts = () => async (dispatch) => {
   const apiRes = axios
