@@ -15,8 +15,7 @@ This is travel booking website exclusively for bookings various destinations acr
 The entire website is fully responsive accross all the screens. This was made easy by using Bootstrap. 
 
 ## Deployed Link
-
-https://adventour-masai.netlify.app/
+https://adventourr-masai.netlify.app/
 
 ## Tech Stack
 
