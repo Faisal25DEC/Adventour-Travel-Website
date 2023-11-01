@@ -15,7 +15,7 @@ const createAction = (type, payload) => {
   return { type, payload };
 };
 
-const baseUrl = `https://alcazar.onrender.com`;
+const baseUrl = `https://weak-gray-tortoise-fez.cyclic.app`;
 
 export const getAllProducts = () => async (dispatch) => {
   const apiRes = axios
