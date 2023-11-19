@@ -44,7 +44,7 @@ export const db = getFirestore(firebaseApp);
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation
-) => {
+) => {  
   if (!userAuth) return;
   console.log(userAuth.uid);
   const userDocRef = doc(db, "users", userAuth.uid);

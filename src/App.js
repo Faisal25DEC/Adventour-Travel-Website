@@ -8,6 +8,7 @@ import { Home } from "./Pages/Home";
 import { useEffect } from "react";
 import {
   createUserDocumentFromAuth,
+  db,
   getUserDocumentFromAuth,
   onAuthStateChangedListener,
   updateBookings,
@@ -16,6 +17,7 @@ import { loginUser } from "./Redux/userReducer/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./Redux/userReducer/userReducer";
 import { setWindowClick } from "./Redux/windowReducer/windowActions";
+import { doc, onSnapshot } from "firebase/firestore";
 function App() {
   const { isAuth, userDetails } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
@@ -35,7 +37,10 @@ function App() {
         const data = getUserDocumentFromAuth(user);
         data.then((res) => {
           console.log(res.data());
-          dispatch(loginUser({ ...res.data(), uid: user.uid }));
+          const unSub = onSnapshot(doc(db, "users", res.id), (doc) => {
+            doc.exists() &&
+              dispatch(loginUser({ ...doc.data(), uid: res.uid }));
+          });
         });
         console.log(user);
       }
