@@ -11,7 +11,7 @@
 
 ## Introduction
 
-This is travel booking website exclusively for bookings various destinations across India. We are doing this as a group project given to us by Masai School to hone our Development Skills.
+This is travel booking website exclusively for bookings various destinations across India. We are doing this as a group project given to us by Masai School to enhance our Development Skills.
 The entire website is fully responsive accross all the screens. This was made easy by using Bootstrap. 
 
 ## Deployed Link
